@@ -4,8 +4,8 @@
 # include <elf/types.h>
 # include <utils/mapped_file.h>
 
-# include <boost/bimap.hpp>
-# include <elf.h>
+# include <map>
+# include <memory>
 # include <string>
 
 namespace sasm { namespace elf {
@@ -16,29 +16,26 @@ class symtab
 public:
   typedef typename sasm::elf::types<word_size>::addr  addr_type;
   typedef typename sasm::elf::types<word_size>::off   off_type;
-  typedef typename sasm::elf::types<word_size>::ehdr  ehdr_type;
-  typedef typename sasm::elf::types<word_size>::shdr  shdr_type;
+
+  struct symbol
+  {
+    std::string   name;
+    addr_type     addr;
+    off_type      size;
+  };
 
 public:
   symtab(const sasm::utils::mapped_file& file);
 
-  addr_type get_addr(std::string& name) const;
-  std::string get_name(addr_type addr) const;
+  const symbol& get_sym(const std::string& name) const;
+  const symbol& get_sym(addr_type addr) const;
 
-  addr_type operator[](std::string& name) const;
-  std::string operator[](addr_type addr) const;
+  const symbol& operator[](const std::string& name) const;
+  const symbol& operator[](addr_type addr) const;
 
 private:
-  const sasm::utils::mapped_file& _file;
-  bool                            _symtab_exists;
-
-  off_type  _symtab_offset;
-  int       _sym_count;
-  off_type  _strtab_offset;
-  int       _strtab_size;
-
-  typedef boost::bimap<addr_type, std::string>  bm_type;
-  bm_type                                       _cache;
+  std::map<std::string, std::shared_ptr<symbol>> _name_map;
+  std::map<addr_type, std::shared_ptr<symbol>> _addr_map;
 };
 
 }}

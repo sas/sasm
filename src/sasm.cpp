@@ -22,6 +22,10 @@ int main(int argc, char **argv)
   f.map();
 
   sasm::elf::elf<32> e(f);
+  sasm::elf::symtab<32> s(f);
+
+  std::cout << s["idt_redir_253"].addr << std::endl;
+  std::cout << s[0x102aca].name << std::endl;
 
   return 0;
 }
