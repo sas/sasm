@@ -22,6 +22,14 @@ public:
     std::string   name;
     addr_type     addr;
     off_type      size;
+    enum class    type
+    {
+      notype,
+      object,
+      func,
+      common,
+      tls,
+    }             type;
   };
 
 public:
@@ -35,7 +43,33 @@ public:
 
 private:
   std::map<std::string, std::shared_ptr<symbol>> _name_map;
+  /*
+  ** XXX: We should probably use a multimap here, because  multiple symbols can
+  ** have the same address.
+  */
   std::map<addr_type, std::shared_ptr<symbol>> _addr_map;
+
+public:
+  class const_iterator
+  {
+  public:
+    const_iterator(const symtab<word_size>& symtab, bool end = false);
+
+    const symbol& operator*() const;
+    const symbol* operator->() const;
+    const const_iterator& operator++();
+    const const_iterator& operator++(int dummy);
+    const const_iterator& operator--();
+    const const_iterator& operator--(int dummy);
+    bool operator==(const const_iterator& rhs) const;
+    bool operator!=(const const_iterator& rhs) const;
+
+  private:
+    typename std::map<addr_type, std::shared_ptr<symbol>>::const_iterator _parent_iter;
+  };
+
+  const_iterator begin() const;
+  const_iterator end() const;
 };
 
 }}
