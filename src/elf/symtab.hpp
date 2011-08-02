@@ -56,8 +56,8 @@ symtab<word_size>::symtab(const sasm::utils::mapped_file& file)
     sym->size = elf_sym.st_size;
     sym->type = stt_to_enum[type];
 
-    _name_map[sym->name] = sym;
-    _addr_map[sym->addr] = sym;
+    _name_map.insert(std::pair<std::string, std::shared_ptr<symbol>>(sym->name, sym));
+    _addr_map.insert(std::pair<addr_type, std::shared_ptr<symbol>>(sym->addr, sym));
   }
 }
 
@@ -80,7 +80,7 @@ auto symtab<word_size>::get_sym(addr_type addr) const -> const symbol&
   if (res != _addr_map.end())
     return *res->second;
   else
-    throw std::out_of_range("symtab::get_sym");
+    throw std::out_of_range("sasm::elf::symtab::get_sym");
 }
 
 template<int word_size>

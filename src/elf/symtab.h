@@ -35,6 +35,11 @@ public:
 public:
   symtab(const sasm::utils::mapped_file& file);
 
+  /*
+  ** XXX: get_sym(addr_type addr) and operator[](addr_type addr) only return
+  ** *one* symbol corresponding to the given address.
+  */
+
   const symbol& get_sym(const std::string& name) const;
   const symbol& get_sym(addr_type addr) const;
 
@@ -43,11 +48,7 @@ public:
 
 private:
   std::map<std::string, std::shared_ptr<symbol>> _name_map;
-  /*
-  ** XXX: We should probably use a multimap here, because  multiple symbols can
-  ** have the same address.
-  */
-  std::map<addr_type, std::shared_ptr<symbol>> _addr_map;
+  std::multimap<addr_type, std::shared_ptr<symbol>> _addr_map;
 
 public:
   class const_iterator
@@ -65,7 +66,7 @@ public:
     bool operator!=(const const_iterator& rhs) const;
 
   private:
-    typename std::map<addr_type, std::shared_ptr<symbol>>::const_iterator _parent_iter;
+    typename std::multimap<addr_type, std::shared_ptr<symbol>>::const_iterator _parent_iter;
   };
 
   const_iterator begin() const;
