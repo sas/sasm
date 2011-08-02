@@ -29,6 +29,7 @@ int main(int argc, char **argv)
 
   sasm::elf::elf<32> e(f);
   sasm::elf::symtab<32> s(f);
+  sasm::elf::image<32> i(f);
 
   dump_symtab(s, std::cout);
 

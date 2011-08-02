@@ -69,7 +69,7 @@ auto symtab<word_size>::get_sym(const std::string& name) const -> const symbol&
   if (res != _name_map.end())
     return *res->second;
   else
-    throw std::out_of_range("symtab::get_sym");
+    throw std::out_of_range("sasm::elf::symtab::get_sym");
 }
 
 template<int word_size>
