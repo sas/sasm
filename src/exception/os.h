@@ -1,5 +1,5 @@
-#ifndef EXCEPTION_OS_HH_
-# define EXCEPTION_OS_HH_
+#ifndef EXCEPTION_OS_H_
+# define EXCEPTION_OS_H_
 
 # include <exception>
 # include <string>
@@ -23,4 +23,4 @@ private:
 
 }}
 
-#endif /* !EXCEPTION_OS_HH_ */
+#endif /* !EXCEPTION_OS_H_ */

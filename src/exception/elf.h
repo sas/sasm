@@ -1,5 +1,5 @@
-#ifndef EXCEPTION_ELF_HH_
-# define EXCEPTION_ELF_HH_
+#ifndef EXCEPTION_ELF_H_
+# define EXCEPTION_ELF_H_
 
 # include <exception>
 # include <string>
@@ -22,4 +22,4 @@ private:
 
 }}
 
-#endif /* !EXCEPTION_ELF_HH_ */
+#endif /* !EXCEPTION_ELF_H_ */

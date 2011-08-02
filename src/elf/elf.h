@@ -1,5 +1,5 @@
-#ifndef ELF_ELF_HH_
-# define ELF_ELF_HH_
+#ifndef ELF_ELF_H_
+# define ELF_ELF_H_
 
 # include <elf/image.h>
 # include <elf/symtab.h>
@@ -31,4 +31,4 @@ private:
 }}
 
 # include "elf.hpp"
-#endif /* !ELF_ELF_HH_ */
+#endif /* !ELF_ELF_H_ */

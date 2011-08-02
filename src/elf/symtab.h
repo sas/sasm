@@ -1,5 +1,5 @@
-#ifndef ELF_SYMTAB_HH_
-# define ELF_SYMTAB_HH_
+#ifndef ELF_SYMTAB_H_
+# define ELF_SYMTAB_H_
 
 # include <elf/types.h>
 # include <utils/mapped_file.h>
@@ -76,4 +76,4 @@ public:
 }}
 
 # include "symtab.hpp"
-#endif /* !ELF_SYMTAB_HH_ */
+#endif /* !ELF_SYMTAB_H_ */

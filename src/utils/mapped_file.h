@@ -1,5 +1,5 @@
-#ifndef MAPPED_FILE_HH_
-# define MAPPED_FILE_HH_
+#ifndef MAPPED_FILE_H_
+# define MAPPED_FILE_H_
 
 # include <cstdint>
 
@@ -34,4 +34,4 @@ private:
 
 }}
 
-#endif /* !MAPPED_FILE_HH_ */
+#endif /* !MAPPED_FILE_H_ */

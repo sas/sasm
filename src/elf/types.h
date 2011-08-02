@@ -1,5 +1,5 @@
-#ifndef ELF_TYPES_HH_
-# define ELF_TYPES_HH_
+#ifndef ELF_TYPES_H_
+# define ELF_TYPES_H_
 
 #include <elf.h>
 
@@ -69,4 +69,4 @@ struct types<64>
 
 }}
 
-#endif /* !ELF_TYPES_HH_ */
+#endif /* !ELF_TYPES_H_ */
