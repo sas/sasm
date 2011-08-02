@@ -11,13 +11,20 @@ void usage_die()
   exit(1);
 }
 
-/* Sample functions on elf objects */
-template<typename symtab_type>
-void dump_symtab(symtab_type symtab, std::ostream& out)
+
+template<typename elf_type>
+void dump_symtab(elf_type elf, std::ostream& out)
 {
-  for (auto i = symtab.begin(); i != symtab.end(); ++i)
+  for (auto i = elf.symtab.begin(); i != elf.symtab.end(); ++i)
     out << "0x" << std::hex << i->addr << std::dec << ": " << i->name << std::endl;
 }
+
+template<typename elf_type>
+void dump_entry(elf_type elf, std::ostream& out)
+{
+  out << "0x" << std::hex << elf.get_entry() << std::dec << std::endl;
+}
+
 
 int main(int argc, char **argv)
 {
@@ -28,10 +35,8 @@ int main(int argc, char **argv)
   f.map();
 
   sasm::elf::elf<32> e(f);
-  sasm::elf::symtab<32> s(f);
-  sasm::elf::image<32> i(f);
 
-  dump_symtab(s, std::cout);
+  dump_entry(e, std::cout);
 
   return 0;
 }
