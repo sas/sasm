@@ -1,7 +1,7 @@
 #include "symtab.h"
 
 #include <pervasive.h>
-#include <elf/info.h>
+#include <elf/elf.h>
 #include <elf/types.h>
 
 namespace sasm { namespace elf {
@@ -71,7 +71,7 @@ static void read_symbols(
 
 symtab::symtab(const sasm::utils::mapped_file& file)
 {
-  int elf_class = sasm::elf::get_class(file);
+  int elf_class = sasm::elf::elf::get_class(file);
 
   if (elf_class == ELFCLASS32)
     read_symbols<ELFCLASS32>(file, _name_map, _addr_map);

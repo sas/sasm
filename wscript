@@ -9,10 +9,14 @@ def configure(cnf):
 def build(bld):
   s = [
       'src/sasm.cpp',
+      'src/disas/disas.cpp',
+      'src/disas/mips/disas.cpp',
+      'src/disas/factory.cpp',
       'src/elf/elf.cpp',
       'src/elf/image.cpp',
-      'src/elf/info.cpp',
       'src/elf/symtab.cpp',
+      'src/instr/instr.cpp',
+      'src/instr/mips/nop.cpp',
       'src/exception/elf.cpp',
       'src/exception/os.cpp',
       'src/utils/mapped_file.cpp'

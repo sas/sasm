@@ -49,4 +49,9 @@ void mapped_file::unmap()
   _is_mapped = false;
 }
 
+const char* mapped_file::get_path() const
+{
+  return _path;
+}
+
 }}

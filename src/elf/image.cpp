@@ -1,6 +1,6 @@
 #include "image.h"
 
-#include <elf/info.h>
+#include <elf/elf.h>
 #include <elf/types.h>
 
 namespace sasm { namespace elf {
@@ -33,7 +33,7 @@ static void read_segments(const sasm::utils::mapped_file& file, std::list<image:
 image::image(const sasm::utils::mapped_file& file)
   : _file(file)
 {
-  int elf_class = sasm::elf::get_class(file);
+  int elf_class = sasm::elf::elf::get_class(file);
 
   if (elf_class == ELFCLASS32)
     read_segments<ELFCLASS32>(file, _segments);
