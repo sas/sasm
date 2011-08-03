@@ -19,7 +19,6 @@ def build(bld):
       'src/exception/os.cpp',
       'src/instr/instr.cpp',
       'src/instr/mips/invalid.cpp',
-      'src/instr/mips/nop.cpp',
       'src/instr/mips/rtype/add.cpp',
       'src/instr/mips/rtype/addu.cpp',
       'src/instr/mips/rtype/and.cpp',

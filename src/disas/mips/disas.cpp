@@ -2,7 +2,6 @@
 
 #include <pervasive.h>
 #include <instr/mips/invalid.h>
-#include <instr/mips/nop.h>
 #include <instr/mips/rtype/add.h>
 #include <instr/mips/rtype/addu.h>
 #include <instr/mips/rtype/and.h>
@@ -99,13 +98,6 @@ sasm::instr::instr* mips_disas::next_instr()
 {
   auto next = _elf.image.read<uint32>(_current_addr);
   sasm::instr::instr* res;
-
-  /* Short circuit for nop. */
-  if (next == 0)
-  {
-    _current_addr += 4;
-    return new sasm::instr::mips::nop(_elf, _current_addr);
-  }
 
   switch (MIPS_INSTR_OPCODE(next))
   {
