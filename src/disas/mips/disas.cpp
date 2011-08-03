@@ -2,6 +2,8 @@
 
 #include <pervasive.h>
 #include <instr/mips/invalid.h>
+#include <instr/mips/jtype/j.h>
+#include <instr/mips/jtype/jal.h>
 #include <instr/mips/rtype/add.h>
 #include <instr/mips/rtype/addu.h>
 #include <instr/mips/rtype/and.h>
@@ -86,7 +88,14 @@ sasm::instr::instr* mips_disas::_next_itype_instr()
 
 sasm::instr::instr* mips_disas::_next_jtype_instr()
 {
-  return new sasm::instr::mips::invalid(_elf, _current_addr);
+  auto next = _elf.image.read<uint32>(_current_addr);
+
+  switch (MIPS_INSTR_OPCODE(next))
+  {
+    case 0x02: return new sasm::instr::mips::jtype::j(_elf, _current_addr);
+    case 0x03: return new sasm::instr::mips::jtype::jal(_elf, _current_addr);
+    default: return new sasm::instr::mips::invalid(_elf, _current_addr);
+  }
 }
 
 sasm::instr::instr* mips_disas::_next_coproc_instr()
