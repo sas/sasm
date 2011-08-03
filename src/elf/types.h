@@ -5,8 +5,13 @@
 
 namespace sasm { namespace elf {
 
-template<int word_size>
+template<int elf_class>
 struct types
+{
+};
+
+template<>
+struct types<ELFCLASS32>
 {
   typedef Elf32_Half    half;
   typedef Elf32_Word    word;
@@ -37,7 +42,7 @@ struct types
 };
 
 template<>
-struct types<64>
+struct types<ELFCLASS64>
 {
   typedef Elf64_Half    half;
   typedef Elf64_Word    word;

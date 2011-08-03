@@ -5,11 +5,11 @@
 
 namespace sasm { namespace elf {
 
-template<int word_size>
+template<int elf_class>
 static void read_segments(const sasm::utils::mapped_file& file, std::list<image::segment>& seg_list)
 {
-  typedef typename sasm::elf::types<word_size>::ehdr  ehdr_type;
-  typedef typename sasm::elf::types<word_size>::phdr  phdr_type;
+  typedef typename sasm::elf::types<elf_class>::ehdr  ehdr_type;
+  typedef typename sasm::elf::types<elf_class>::phdr  phdr_type;
 
   auto ehdr = file.read<ehdr_type>(0);
 
@@ -26,19 +26,19 @@ static void read_segments(const sasm::utils::mapped_file& file, std::list<image:
 
     seg_list.push_back(seg);
   }
+
+  seg_list.sort([](image::segment first, image::segment second){ return first.vaddr < second.vaddr; });
 }
 
 image::image(const sasm::utils::mapped_file& file)
   : _file(file)
 {
-  int word_size = sasm::elf::get_class(file);
+  int elf_class = sasm::elf::get_class(file);
 
-  if (word_size == 32)
-    read_segments<32>(file, _segments);
-  else if (word_size == 64)
-    read_segments<64>(file, _segments);
-
-  _segments.sort([](segment first, segment second){ return first.vaddr < second.vaddr; });
+  if (elf_class == ELFCLASS32)
+    read_segments<ELFCLASS32>(file, _segments);
+  else if (elf_class == ELFCLASS64)
+    read_segments<ELFCLASS64>(file, _segments);
 }
 
 }}

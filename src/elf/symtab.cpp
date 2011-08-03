@@ -6,16 +6,16 @@
 
 namespace sasm { namespace elf {
 
-template<int word_size>
+template<int elf_class>
 static void read_symbols(
     const sasm::utils::mapped_file& file,
     std::map<std::string, std::shared_ptr<symtab::symbol>>& name_map,
     std::multimap<uint64, std::shared_ptr<symtab::symbol>>& addr_map
   )
 {
-  typedef typename sasm::elf::types<word_size>::ehdr  ehdr_type;
-  typedef typename sasm::elf::types<word_size>::shdr  shdr_type;
-  typedef typename sasm::elf::types<word_size>::sym   sym_type;
+  typedef typename sasm::elf::types<elf_class>::ehdr  ehdr_type;
+  typedef typename sasm::elf::types<elf_class>::shdr  shdr_type;
+  typedef typename sasm::elf::types<elf_class>::sym   sym_type;
 
   auto ehdr = file.read<ehdr_type>(0);
   uint64 symtab_offset;
@@ -71,12 +71,12 @@ static void read_symbols(
 
 symtab::symtab(const sasm::utils::mapped_file& file)
 {
-  int word_size = sasm::elf::get_class(file);
+  int elf_class = sasm::elf::get_class(file);
 
-  if (word_size == 32)
-    read_symbols<32>(file, _name_map, _addr_map);
-  else if (word_size == 64)
-    read_symbols<64>(file, _name_map, _addr_map);
+  if (elf_class == ELFCLASS32)
+    read_symbols<ELFCLASS32>(file, _name_map, _addr_map);
+  else if (elf_class == ELFCLASS64)
+    read_symbols<ELFCLASS64>(file, _name_map, _addr_map);
 }
 
 }}
