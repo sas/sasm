@@ -9,8 +9,12 @@ def configure(cnf):
 def build(bld):
   s = [
       'src/sasm.cpp',
+      'src/elf/elf.cpp',
+      'src/elf/image.cpp',
+      'src/elf/info.cpp',
+      'src/elf/symtab.cpp',
       'src/exception/elf.cpp',
       'src/exception/os.cpp',
       'src/utils/mapped_file.cpp'
   ]
-  bld(features='cxx cxxprogram', source=s, target='sasm', includes='./src')
+  bld(features='cxx cxxprogram', source=s, target='sasm', includes='src')
