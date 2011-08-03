@@ -15,8 +15,8 @@ mapped_file::mapped_file(const char* path)
 
 mapped_file::~mapped_file()
 {
-  if (this->_is_mapped)
-    this->unmap();
+  if (_is_mapped)
+    unmap();
 }
 
 void mapped_file::map()
@@ -25,8 +25,8 @@ void mapped_file::map()
   struct stat buf;
   char* begin;
   
-  if ((fd = open(this->_path, O_RDONLY)) == -1)
-    throw sasm::exception::os("open", this->_path);
+  if ((fd = open(_path, O_RDONLY)) == -1)
+    throw sasm::exception::os("open", _path);
 
   if (fstat(fd, &buf) == -1)
     throw sasm::exception::os("fstat");
@@ -36,17 +36,17 @@ void mapped_file::map()
 
   close(fd);
 
-  this->_is_mapped = true;
-  this->_begin = begin;
-  this->_size = buf.st_size;
+  _is_mapped = true;
+  _begin = begin;
+  _size = buf.st_size;
 }
 
 void mapped_file::unmap()
 {
-  if (munmap((void*) this->_begin, this->_size) == -1)
+  if (munmap((void*) _begin, _size) == -1)
     throw sasm::exception::os("munmap");
 
-  this->_is_mapped = false;
+  _is_mapped = false;
 }
 
 }}
