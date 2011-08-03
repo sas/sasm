@@ -25,7 +25,7 @@ static void dump_asm(sasm::elf::elf& elf, std::ostream& out)
 {
   auto dis = sasm::disas::factory(elf);
 
-  for (int i = 0; i < 5; ++i)
+  for (int i = 0; i < 10; ++i)
   {
     auto ins = dis->next_instr();
     ins->dump_asm(out);

@@ -17,12 +17,12 @@ protected:
   void _dump_rs_reg(std::ostream& out) const;
   void _dump_rt_reg(std::ostream& out) const;
   void _dump_rd_reg(std::ostream& out) const;
-  void _dump_sa_reg(std::ostream& out) const;
+  void _dump_sa_val(std::ostream& out) const;
 
   int _rs_reg;
   int _rt_reg;
   int _rd_reg;
-  int _sa_reg;
+  int _sa_val;
 };
 
 }}}}

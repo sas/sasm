@@ -15,7 +15,7 @@ rtype_instr::rtype_instr(const sasm::elf::elf& elf, uint64 addr)
   _rs_reg = MIPS_RTYPE_EXTRACT_RS(instr);
   _rt_reg = MIPS_RTYPE_EXTRACT_RT(instr);
   _rd_reg = MIPS_RTYPE_EXTRACT_RD(instr);
-  _sa_reg = MIPS_RTYPE_EXTRACT_SA(instr);
+  _sa_val = MIPS_RTYPE_EXTRACT_SA(instr);
 }
 
 void rtype_instr::_dump_rs_reg(std::ostream& out) const
@@ -33,9 +33,9 @@ void rtype_instr::_dump_rd_reg(std::ostream& out) const
   out << "$" << _rd_reg;
 }
 
-void rtype_instr::_dump_sa_reg(std::ostream& out) const
+void rtype_instr::_dump_sa_val(std::ostream& out) const
 {
-  out << "$" << _sa_reg;
+  out << "0x" << std::hex << _sa_val << std::dec;
 }
 
 }}}}
