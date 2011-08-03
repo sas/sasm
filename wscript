@@ -10,15 +10,16 @@ def build(bld):
   s = [
       'src/sasm.cpp',
       'src/disas/disas.cpp',
-      'src/disas/mips/disas.cpp',
       'src/disas/factory.cpp',
+      'src/disas/mips/disas.cpp',
       'src/elf/elf.cpp',
       'src/elf/image.cpp',
       'src/elf/symtab.cpp',
-      'src/instr/instr.cpp',
-      'src/instr/mips/nop.cpp',
       'src/exception/elf.cpp',
       'src/exception/os.cpp',
+      'src/instr/instr.cpp',
+      'src/instr/mips/invalid.cpp',
+      'src/instr/mips/nop.cpp',
       'src/utils/mapped_file.cpp'
   ]
   bld(features='cxx cxxprogram', source=s, target='sasm', includes='src')

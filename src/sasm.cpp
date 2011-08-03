@@ -23,9 +23,16 @@ static void dump_symtab(sasm::elf::elf& elf, std::ostream& out)
 
 static void dump_asm(sasm::elf::elf& elf, std::ostream& out)
 {
-  auto d = sasm::disas::factory(elf);
-  auto instr = d->next_instr();
-  instr->dump_asm(out);
+  auto dis = sasm::disas::factory(elf);
+
+  for (int i = 0; i < 5; ++i)
+  {
+    auto ins = dis->next_instr();
+    ins->dump_asm(out);
+    delete ins;
+  }
+
+  delete dis;
 }
 
 int main(int argc, char **argv)

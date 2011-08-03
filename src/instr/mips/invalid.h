@@ -1,5 +1,5 @@
-#ifndef INSTR_MIPS_NOP_H_
-# define INSTR_MIPS_NOP_H_
+#ifndef INSTR_MIPS_INVALID_H_
+# define INSTR_MIPS_INVALID_H_
 
 # include <pervasive.h>
 # include <elf/elf.h>
@@ -9,13 +9,13 @@
 
 namespace sasm { namespace instr { namespace mips {
 
-class nop : public instr
+class invalid : public instr
 {
 public:
-  nop(const sasm::elf::elf& elf, uint64 addr);
+  invalid(const sasm::elf::elf& elf, uint64 addr);
   virtual void dump_asm(std::ostream& out) const;
 };
 
 }}}
 
-#endif /* !INSTR_MIPS_NOP_H_ */
+#endif /* !INSTR_MIPS_INVALID_H_ */

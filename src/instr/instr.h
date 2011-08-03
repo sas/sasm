@@ -10,7 +10,7 @@ namespace sasm { namespace instr {
 class instr
 {
 public:
-  instr(const sasm::elf::elf& elf);
+  instr(const sasm::elf::elf& elf, uint64 addr);
   virtual void dump_asm(std::ostream& out) const = 0;
 
 protected:
