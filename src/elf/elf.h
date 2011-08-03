@@ -19,11 +19,13 @@ public:
   sasm::elf::symtab symtab;
 
   static int get_class(const sasm::utils::mapped_file& file);
+  static int get_dataenc(const sasm::utils::mapped_file& file);
   static int get_type(const sasm::utils::mapped_file& file);
   static int get_machine(const sasm::utils::mapped_file& file);
   static uint64 get_entry(const sasm::utils::mapped_file& file);
 
   int get_class() const;
+  int get_dataenc() const;
   int get_type() const;
   int get_machine() const;
   uint64 get_entry() const;

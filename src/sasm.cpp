@@ -43,9 +43,11 @@ int main(int argc, char **argv)
   sasm::utils::mapped_file f(argv[1]);
   f.map();
 
+  std::cout << sasm::elf::elf::get_dataenc(f) << std::endl;
+  std::cout << sasm::elf::elf::get_entry(f) << std::endl;
+
   sasm::elf::elf e(f);
 
-  //dump_symtab(e, std::cout);
   dump_asm(e, std::cout);
 
   return EXIT_SUCCESS;

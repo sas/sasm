@@ -18,6 +18,12 @@ int elf::get_class(const sasm::utils::mapped_file& file)
   return begin[EI_CLASS];
 }
 
+int elf::get_dataenc(const sasm::utils::mapped_file& file)
+{
+  const byte* begin = &file.read<byte>(0);
+  return begin[EI_DATA];
+}
+
 template<int elf_class> static int do_get_type(const sasm::utils::mapped_file& file)
 {
   typedef typename sasm::elf::types<elf_class>::ehdr ehdr_type;
@@ -75,6 +81,11 @@ uint64 elf::get_entry(const sasm::utils::mapped_file& file)
 int elf::get_class() const
 {
   return get_class(_file);
+}
+
+int elf::get_dataenc() const
+{
+  return get_dataenc(_file);
 }
 
 int elf::get_type() const
