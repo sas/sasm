@@ -20,6 +20,8 @@ def build(bld):
       'src/instr/instr.cpp',
       'src/instr/mips/invalid.cpp',
       'src/instr/mips/nop.cpp',
+      'src/instr/mips/rtype/add.cpp',
+      'src/instr/mips/rtype/instr.cpp',
       'src/utils/mapped_file.cpp'
   ]
   bld(features='cxx cxxprogram', source=s, target='sasm', includes='src')

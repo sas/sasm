@@ -16,6 +16,8 @@ public:
 protected:
   const sasm::elf::elf& _elf;
   uint64 _addr;
+
+  void _dump_addr(std::ostream& out) const;
 };
 
 }}

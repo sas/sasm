@@ -7,4 +7,9 @@ instr::instr(const sasm::elf::elf& elf, uint64 addr)
 {
 }
 
+void instr::_dump_addr(std::ostream& out) const
+{
+  out << "0x" << std::hex << _addr << std::dec << ": ";
+}
+
 }}

@@ -3,7 +3,7 @@
 
 # include <pervasive.h>
 # include <elf/elf.h>
-# include <instr/instr.h>
+# include <instr/mips/rtype/instr.h>
 
 # include <ostream>
 
