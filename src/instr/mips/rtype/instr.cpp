@@ -8,7 +8,7 @@
 namespace sasm { namespace instr { namespace mips { namespace rtype {
 
 rtype_instr::rtype_instr(const sasm::elf::elf& elf, uint64 addr)
-  : instr(elf, addr)
+  : mips_instr(elf, addr)
 {
   auto instr = elf.image.read<uint32>(addr);
 
@@ -18,103 +18,58 @@ rtype_instr::rtype_instr(const sasm::elf::elf& elf, uint64 addr)
   _sa_val = MIPS_RTYPE_EXTRACT_SA(instr);
 }
 
-void rtype_instr::_dump_rs_reg(std::ostream& out) const
-{
-  out << "$" << _rs_reg;
-}
-
-void rtype_instr::_dump_rt_reg(std::ostream& out) const
-{
-  out << "$" << _rt_reg;
-}
-
-void rtype_instr::_dump_rd_reg(std::ostream& out) const
-{
-  out << "$" << _rd_reg;
-}
-
-void rtype_instr::_dump_sa_val(std::ostream& out) const
-{
-  out << "0x" << std::hex << _sa_val << std::dec;
-}
-
 void rd_rs_rt_instr::dump_asm(std::ostream& out) const
 {
   _dump_addr(out);
-  out << _name << " ";
-  _dump_rd_reg(out);
-  out << ", ";
-  _dump_rs_reg(out);
-  out << ", ";
-  _dump_rt_reg(out);
-  out << std::endl;
+  out << _name << " " << _get_reg_name(_rd_reg) << ", "
+    << _get_reg_name(_rs_reg) << ", " << _get_reg_name(_rt_reg) << std::endl;
 }
 
 void noarg_instr::dump_asm(std::ostream& out) const
 {
   _dump_addr(out);
-  out << _name;
-  out << std::endl;
+  out << _name << std::endl;
 }
 
 void rs_rt_instr::dump_asm(std::ostream& out) const
 {
   _dump_addr(out);
-  out << _name << " ";
-  _dump_rs_reg(out);
-  out << ", ";
-  _dump_rt_reg(out);
-  out << std::endl;
+  out << _name << " " << _get_reg_name(_rs_reg) << ", "
+    << _get_reg_name(_rt_reg) << std::endl;
 }
 
 void rd_rs_instr::dump_asm(std::ostream& out) const
 {
   _dump_addr(out);
-  out << _name << " ";
-  _dump_rd_reg(out);
-  out << ", ";
-  _dump_rs_reg(out);
-  out << std::endl;
+  out << _name << " " << _get_reg_name(_rd_reg) << ", "
+    << _get_reg_name(_rs_reg) << std::endl;
 }
 
 void rs_instr::dump_asm(std::ostream& out) const
 {
   _dump_addr(out);
-  out << _name << " ";
-  _dump_rs_reg(out);
-  out << std::endl;
+  out << _name << " " << _get_reg_name(_rs_reg) << std::endl;
 }
 
 void rd_instr::dump_asm(std::ostream& out) const
 {
   _dump_addr(out);
-  out << _name << " ";
-  _dump_rd_reg(out);
-  out << std::endl;
+  out << _name << " " << _get_reg_name(_rd_reg) << std::endl;
 }
 
 void rd_rt_sa_instr::dump_asm(std::ostream& out) const
 {
   _dump_addr(out);
-  out << _name << " ";
-  _dump_rd_reg(out);
-  out << ", ";
-  _dump_rt_reg(out);
-  out << ", ";
-  _dump_sa_val(out);
-  out << std::endl;
+  out << _name << " " << _get_reg_name(_rd_reg) << ", "
+    << _get_reg_name(_rt_reg) << ", 0x" << std::hex << _sa_val << std::dec
+    << std::endl;
 }
 
 void rd_rt_rs_instr::dump_asm(std::ostream& out) const
 {
   _dump_addr(out);
-  out << _name << " ";
-  _dump_rd_reg(out);
-  out << ", ";
-  _dump_rt_reg(out);
-  out << ", ";
-  _dump_rs_reg(out);
-  out << std::endl;
+  out << _name << " " << _get_reg_name(_rd_reg) << ", "
+    << _get_reg_name(_rs_reg) << ", " << _get_reg_name(_rt_reg) << std::endl;
 }
 
 }}}}

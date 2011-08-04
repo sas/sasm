@@ -7,23 +7,13 @@
 namespace sasm { namespace instr { namespace mips { namespace itype {
 
 itype_instr::itype_instr(const sasm::elf::elf& elf, uint64 addr)
-  : instr(elf, addr)
+  : mips_instr(elf, addr)
 {
   auto instr = elf.image.read<uint32>(addr);
 
   _rs_reg = MIPS_ITYPE_EXTRACT_RS(instr);
   _rt_reg = MIPS_ITYPE_EXTRACT_RT(instr);
   _immed_val = MIPS_ITYPE_EXTRACT_IMMED(instr);
-}
-
-void itype_instr::_dump_rs_reg(std::ostream& out) const
-{
-  out << "$" << _rs_reg;
-}
-
-void itype_instr::_dump_rt_reg(std::ostream& out) const
-{
-  out << "$" << _rt_reg;
 }
 
 void itype_instr::_dump_immed_val(std::ostream& out, bool as_addr) const
@@ -42,11 +32,8 @@ rs_rt_label_instr::rs_rt_label_instr(const sasm::elf::elf& elf, uint64 addr)
 void rs_rt_label_instr::dump_asm(std::ostream& out) const
 {
   _dump_addr(out);
-  out << _name << " ";
-  _dump_rs_reg(out);
-  out << ", ";
-  _dump_rt_reg(out);
-  out << ", ";
+  out << _name << " " << _get_reg_name(_rs_reg) << ", "
+    << _get_reg_name(_rt_reg) << ", ";
   _dump_immed_val(out, true);
   out << std::endl;
 }

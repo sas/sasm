@@ -9,7 +9,7 @@ invalid::invalid(const sasm::elf::elf& elf, uint64 addr)
 
 void invalid::dump_asm(std::ostream& out) const
 {
-  out << "0x" << std::hex << _addr << std::dec << ": ";
+  _dump_addr(out);
   out << "invalid" << std::endl;
 }
 

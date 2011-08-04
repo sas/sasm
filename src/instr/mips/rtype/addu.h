@@ -18,11 +18,8 @@ struct addu : public rd_rs_rt_instr
     if (_rt_reg == 0)
     {
       _dump_addr(out);
-      out << "move ";
-      _dump_rd_reg(out);
-      out << ", ";
-      _dump_rs_reg(out);
-      out << std::endl;
+      out << "move " << _get_reg_name(_rd_reg) << ", " << _get_reg_name(_rs_reg)
+        << std::endl;
     }
     else
     {
