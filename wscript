@@ -19,8 +19,6 @@ def build(bld):
       'src/exception/os.cpp',
       'src/instr/instr.cpp',
       'src/instr/mips/invalid.cpp',
-      'src/instr/mips/itype/beq.cpp',
-      'src/instr/mips/itype/bne.cpp',
       'src/instr/mips/itype/instr.cpp',
       'src/instr/mips/jtype/instr.cpp',
       'src/instr/mips/jtype/j.cpp',

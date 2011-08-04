@@ -29,15 +29,26 @@ void itype_instr::_dump_rt_reg(std::ostream& out) const
 void itype_instr::_dump_immed_val(std::ostream& out, bool as_addr) const
 {
   if (as_addr)
-  {
-    out << "0x" << std::hex;
-    out << _addr + (_immed_val << 2) + 4;
-    out << std::dec;
-  }
+    out << "0x" << std::hex << _addr + (_immed_val << 2) + 4 << std::dec;
   else
-  {
     out << "0x" << std::hex << _immed_val << std::dec;
-  }
+}
+
+rs_rt_label_instr::rs_rt_label_instr(const sasm::elf::elf& elf, uint64 addr)
+  : itype_instr(elf, addr)
+{
+}
+
+void rs_rt_label_instr::dump_asm(std::ostream& out) const
+{
+  _dump_addr(out);
+  out << _name << " ";
+  _dump_rs_reg(out);
+  out << ", ";
+  _dump_rt_reg(out);
+  out << ", ";
+  _dump_immed_val(out, true);
+  out << std::endl;
 }
 
 }}}}

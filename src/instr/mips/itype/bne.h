@@ -4,15 +4,13 @@
 # include <pervasive.h>
 # include <instr/mips/itype/instr.h>
 
-# include <ostream>
-
 namespace sasm { namespace instr { namespace mips { namespace itype {
 
-class bne : public itype_instr
+struct bne : public rs_rt_label_instr
 {
-public:
-  bne(const sasm::elf::elf& elf, uint64 addr);
-  virtual void dump_asm(std::ostream& out) const;
+  bne(const sasm::elf::elf& elf, uint64 addr)
+    : rs_rt_label_instr(elf, addr)
+  { _name = "bne"; }
 };
 
 }}}}
