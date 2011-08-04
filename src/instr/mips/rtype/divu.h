@@ -1,5 +1,5 @@
-#ifndef INSTR_MIPS_DIVU_H_
-# define INSTR_MIPS_DIVU_H_
+#ifndef INSTR_MIPS_RTYPE_DIVU_H_
+# define INSTR_MIPS_RTYPE_DIVU_H_
 
 # include <pervasive.h>
 # include <instr/mips/rtype/instr.h>
@@ -17,4 +17,4 @@ public:
 
 }}}}
 
-#endif /* !INSTR_MIPS_DIVU_H_ */
+#endif /* !INSTR_MIPS_RTYPE_DIVU_H_ */
