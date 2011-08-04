@@ -4,15 +4,13 @@
 # include <pervasive.h>
 # include <instr/mips/jtype/instr.h>
 
-# include <ostream>
-
 namespace sasm { namespace instr { namespace mips { namespace jtype {
 
-class jal : public jtype_instr
+struct jal : public jtype_instr
 {
-public:
-  jal(const sasm::elf::elf& elf, uint64 addr);
-  virtual void dump_asm(std::ostream& out) const;
+  jal(const sasm::elf::elf& elf, uint64 addr)
+    : jtype_instr(elf, addr)
+  { _name = "jal"; }
 };
 
 }}}}

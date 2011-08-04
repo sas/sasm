@@ -1,0 +1,2 @@
+* move register printing in mips_instr class (to be created)
+* move _name variable in instr or mips_instr

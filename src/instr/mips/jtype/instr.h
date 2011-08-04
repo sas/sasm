@@ -12,12 +12,13 @@ class jtype_instr : public instr
 {
 public:
   jtype_instr(const sasm::elf::elf& elf, uint64 addr);
-  virtual void dump_asm(std::ostream& out) const = 0;
+  virtual void dump_asm(std::ostream& out) const;
 
 protected:
   void _dump_target_val(std::ostream& out) const;
 
-  sint32 _target_val;
+  sint32      _target_val;
+  const char* _name;
 };
 
 }}}}

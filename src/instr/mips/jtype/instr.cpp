@@ -19,4 +19,12 @@ void jtype_instr::_dump_target_val(std::ostream& out) const
   out << "0x" << std::hex << _target_val << std::dec;
 }
 
+void jtype_instr::dump_asm(std::ostream& out) const
+{
+  _dump_addr(out);
+  out << _name << " ";
+  _dump_target_val(out);
+  out << std::endl;
+}
+
 }}}}

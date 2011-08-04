@@ -38,4 +38,83 @@ void rtype_instr::_dump_sa_val(std::ostream& out) const
   out << "0x" << std::hex << _sa_val << std::dec;
 }
 
+void rd_rs_rt_instr::dump_asm(std::ostream& out) const
+{
+  _dump_addr(out);
+  out << _name << " ";
+  _dump_rd_reg(out);
+  out << ", ";
+  _dump_rs_reg(out);
+  out << ", ";
+  _dump_rt_reg(out);
+  out << std::endl;
+}
+
+void noarg_instr::dump_asm(std::ostream& out) const
+{
+  _dump_addr(out);
+  out << _name;
+  out << std::endl;
+}
+
+void rs_rt_instr::dump_asm(std::ostream& out) const
+{
+  _dump_addr(out);
+  out << _name << " ";
+  _dump_rs_reg(out);
+  out << ", ";
+  _dump_rt_reg(out);
+  out << std::endl;
+}
+
+void rd_rs_instr::dump_asm(std::ostream& out) const
+{
+  _dump_addr(out);
+  out << _name << " ";
+  _dump_rd_reg(out);
+  out << ", ";
+  _dump_rs_reg(out);
+  out << std::endl;
+}
+
+void rs_instr::dump_asm(std::ostream& out) const
+{
+  _dump_addr(out);
+  out << _name << " ";
+  _dump_rs_reg(out);
+  out << std::endl;
+}
+
+void rd_instr::dump_asm(std::ostream& out) const
+{
+  _dump_addr(out);
+  out << _name << " ";
+  _dump_rd_reg(out);
+  out << std::endl;
+}
+
+void rd_rt_sa_instr::dump_asm(std::ostream& out) const
+{
+  _dump_addr(out);
+  out << _name << " ";
+  _dump_rd_reg(out);
+  out << ", ";
+  _dump_rt_reg(out);
+  out << ", ";
+  _dump_sa_val(out);
+  out << std::endl;
+}
+
+void rd_rt_rs_instr::dump_asm(std::ostream& out) const
+{
+  _dump_addr(out);
+  out << _name << " ";
+  _dump_rd_reg(out);
+  out << ", ";
+  _dump_rt_reg(out);
+  out << ", ";
+  _dump_rs_reg(out);
+  out << std::endl;
+}
+
 }}}}

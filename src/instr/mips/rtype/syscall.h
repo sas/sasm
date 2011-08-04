@@ -4,15 +4,13 @@
 # include <pervasive.h>
 # include <instr/mips/rtype/instr.h>
 
-# include <ostream>
-
 namespace sasm { namespace instr { namespace mips { namespace rtype {
 
-class syscall : public rtype_instr
+struct syscall : public noarg_instr
 {
-public:
-  syscall(const sasm::elf::elf& elf, uint64 addr);
-  virtual void dump_asm(std::ostream& out) const;
+  syscall(const sasm::elf::elf& elf, uint64 addr)
+    : noarg_instr(elf, addr)
+  { _name = "syscall"; }
 };
 
 }}}}

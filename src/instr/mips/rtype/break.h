@@ -4,16 +4,14 @@
 # include <pervasive.h>
 # include <instr/mips/rtype/instr.h>
 
-# include <ostream>
-
 namespace sasm { namespace instr { namespace mips { namespace rtype {
 
 /* Name the class break_ instead of break to avoid token collision. */
-class break_ : public rtype_instr
+struct break_ : public noarg_instr
 {
-public:
-  break_(const sasm::elf::elf& elf, uint64 addr);
-  virtual void dump_asm(std::ostream& out) const;
+  break_(const sasm::elf::elf& elf, uint64 addr)
+    : noarg_instr(elf, addr)
+  { _name = "break"; }
 };
 
 }}}}

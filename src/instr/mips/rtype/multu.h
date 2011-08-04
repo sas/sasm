@@ -4,15 +4,13 @@
 # include <pervasive.h>
 # include <instr/mips/rtype/instr.h>
 
-# include <ostream>
-
 namespace sasm { namespace instr { namespace mips { namespace rtype {
 
-class multu : public rtype_instr
+struct multu : public rs_rt_instr
 {
-public:
-  multu(const sasm::elf::elf& elf, uint64 addr);
-  virtual void dump_asm(std::ostream& out) const;
+  multu(const sasm::elf::elf& elf, uint64 addr)
+    : rs_rt_instr(elf, addr)
+  { _name = "multu"; }
 };
 
 }}}}

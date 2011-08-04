@@ -4,15 +4,27 @@
 # include <pervasive.h>
 # include <instr/mips/rtype/instr.h>
 
-# include <ostream>
-
 namespace sasm { namespace instr { namespace mips { namespace rtype {
 
-class sll : public rtype_instr
+struct sll : public rd_rt_sa_instr
 {
-public:
-  sll(const sasm::elf::elf& elf, uint64 addr);
-  virtual void dump_asm(std::ostream& out) const;
+  sll(const sasm::elf::elf& elf, uint64 addr)
+    : rd_rt_sa_instr(elf, addr)
+  { _name = "sll"; }
+
+  virtual void dump_asm(std::ostream& out) const
+  {
+    /* nop pseudo instruction. */
+    if (_rd_reg == 0 && _rt_reg == 0 && _sa_val == 0)
+    {
+      _dump_addr(out);
+      out << "nop" << std::endl;
+    }
+    else
+    {
+      rd_rt_sa_instr::dump_asm(out);
+    }
+  }
 };
 
 }}}}

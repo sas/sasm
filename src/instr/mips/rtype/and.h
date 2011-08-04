@@ -4,16 +4,14 @@
 # include <pervasive.h>
 # include <instr/mips/rtype/instr.h>
 
-# include <ostream>
-
 namespace sasm { namespace instr { namespace mips { namespace rtype {
 
-/* Name the class and_ instead of and to avoid token collision. */
-class and_ : public rtype_instr
+/* Name the struct and_ instead of and to avoid token collision. */
+struct and_ : public rd_rs_rt_instr
 {
-public:
-  and_(const sasm::elf::elf& elf, uint64 addr);
-  virtual void dump_asm(std::ostream& out) const;
+  and_(const sasm::elf::elf& elf, uint64 addr)
+    : rd_rs_rt_instr(elf, addr)
+  { _name = "and"; }
 };
 
 }}}}

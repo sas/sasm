@@ -4,16 +4,14 @@
 # include <pervasive.h>
 # include <instr/mips/rtype/instr.h>
 
-# include <ostream>
-
 namespace sasm { namespace instr { namespace mips { namespace rtype {
 
-/* Name the class xor_ instead of xor to avoid token collision. */
-class xor_ : public rtype_instr
+/* Name the struct xor_ instead of xor to avoid token collision. */
+struct xor_ : public rd_rs_rt_instr
 {
-public:
-  xor_(const sasm::elf::elf& elf, uint64 addr);
-  virtual void dump_asm(std::ostream& out) const;
+  xor_(const sasm::elf::elf& elf, uint64 addr)
+    : rd_rs_rt_instr(elf, addr)
+  { _name = "xor"; }
 };
 
 }}}}
