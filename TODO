@@ -1,0 +1,2 @@
+* remove <pervasive.h> includes and use -include instead
+* handle more pseudo instructions

@@ -6,6 +6,10 @@
 
 # include <ostream>
 
+# define MIPS_ITYPE_EXTRACT_RS(Instr)     ((Instr >> 21) & ((1 << 5) - 1))
+# define MIPS_ITYPE_EXTRACT_RT(Instr)     ((Instr >> 16) & ((1 << 5) - 1))
+# define MIPS_ITYPE_EXTRACT_IMMED(Instr)  (Instr & 0xffff)
+
 namespace sasm { namespace instr { namespace mips { namespace itype {
 
 class itype_instr : public mips_instr

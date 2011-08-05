@@ -1,10 +1,5 @@
 #include "instr.h"
 
-#define MIPS_RTYPE_EXTRACT_RS(Instr) ((Instr >> 21) & ((1 << 5) - 1))
-#define MIPS_RTYPE_EXTRACT_RT(Instr) ((Instr >> 16) & ((1 << 5) - 1))
-#define MIPS_RTYPE_EXTRACT_RD(Instr) ((Instr >> 11) & ((1 << 5) - 1))
-#define MIPS_RTYPE_EXTRACT_SA(Instr) ((Instr >> 6) & ((1 << 5) - 1))
-
 namespace sasm { namespace instr { namespace mips { namespace rtype {
 
 rtype_instr::rtype_instr(const sasm::elf::elf& elf, uint64 addr)
