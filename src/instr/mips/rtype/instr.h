@@ -14,11 +14,10 @@ public:
   virtual void dump_asm(std::ostream& out) const = 0;
 
 protected:
-  int         _rs_reg;
-  int         _rt_reg;
-  int         _rd_reg;
-  int         _sa_val;
-  const char* _name;
+  int _rs_reg;
+  int _rt_reg;
+  int _rd_reg;
+  int _sa_val;
 };
 
 struct rd_rs_rt_instr : public rtype_instr

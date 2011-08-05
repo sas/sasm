@@ -16,26 +16,12 @@ itype_instr::itype_instr(const sasm::elf::elf& elf, uint64 addr)
   _immed_val = MIPS_ITYPE_EXTRACT_IMMED(instr);
 }
 
-void itype_instr::_dump_immed_val(std::ostream& out, bool as_addr) const
-{
-  if (as_addr)
-    out << "0x" << std::hex << _addr + (_immed_val << 2) + 4 << std::dec;
-  else
-    out << "0x" << std::hex << _immed_val << std::dec;
-}
-
-rs_rt_label_instr::rs_rt_label_instr(const sasm::elf::elf& elf, uint64 addr)
-  : itype_instr(elf, addr)
-{
-}
-
 void rs_rt_label_instr::dump_asm(std::ostream& out) const
 {
   _dump_addr(out);
   out << _name << " " << _get_reg_name(_rs_reg) << ", "
-    << _get_reg_name(_rt_reg) << ", ";
-  _dump_immed_val(out, true);
-  out << std::endl;
+    << _get_reg_name(_rt_reg) << ", " << _get_rela_addr((_immed_val << 2) + 4)
+    << std::endl;
 }
 
 }}}}

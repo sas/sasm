@@ -1,30 +1,21 @@
 #include "instr.h"
 
-/* XXX: potential problem with negative offsets. */
 #define MIPS_JTYPE_EXTRACT_TARGET(Instr) (Instr & ((1 << 26) - 1))
 
 namespace sasm { namespace instr { namespace mips { namespace jtype {
 
 jtype_instr::jtype_instr(const sasm::elf::elf& elf, uint64 addr)
-  : instr(elf, addr)
+  : mips_instr(elf, addr)
 {
   auto instr = elf.image.read<uint32>(addr);
 
-  _target_val = MIPS_JTYPE_EXTRACT_TARGET(instr) << 2;
-}
-
-void jtype_instr::_dump_target_val(std::ostream& out) const
-{
-  /* XXX: Need to do real address resolution. */
-  out << "0x" << std::hex << _target_val << std::dec;
+  _target_val = MIPS_JTYPE_EXTRACT_TARGET(instr);
 }
 
 void jtype_instr::dump_asm(std::ostream& out) const
 {
   _dump_addr(out);
-  out << _name << " ";
-  _dump_target_val(out);
-  out << std::endl;
+  out << _name << " " << _get_abs_addr(_target_val << 2) << std::endl;
 }
 
 }}}}
