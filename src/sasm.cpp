@@ -23,8 +23,9 @@ static void dump_symtab(sasm::elf::elf& elf, std::ostream& out)
 static void dump_asm(sasm::elf::elf& elf, std::ostream& out)
 {
   auto dis = sasm::disas::factory(elf);
+  auto instr_count = elf.sections[".text"].size / 4;
 
-  for (int i = 0; i < 30; ++i)
+  for (uint i = 0; i < instr_count; ++i)
   {
     auto ins = dis->next_instr();
     ins->dump_asm(out);

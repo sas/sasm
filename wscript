@@ -14,6 +14,7 @@ def build(bld):
       'src/disas/mips/disas.cpp',
       'src/elf/elf.cpp',
       'src/elf/image.cpp',
+      'src/elf/sections.cpp',
       'src/elf/symtab.cpp',
       'src/exception/elf.cpp',
       'src/exception/os.cpp',

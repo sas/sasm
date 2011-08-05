@@ -10,6 +10,11 @@ namespace sasm { namespace elf {
 
 class image
 {
+public:
+  image(const sasm::utils::mapped_file& file);
+  template<typename T> const T& read(uint64 addr) const;
+
+private:
   struct segment
   {
     uint64 vaddr;
@@ -19,11 +24,6 @@ class image
     uint64 file_size;
   };
 
-public:
-  image(const sasm::utils::mapped_file& file);
-  template<typename T> const T& read(uint64 addr) const;
-
-private:
   const sasm::utils::mapped_file& _file;
   std::list<segment>              _segments;
 };

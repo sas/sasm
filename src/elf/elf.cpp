@@ -8,7 +8,7 @@
 namespace sasm { namespace elf {
 
 elf::elf(const sasm::utils::mapped_file& file)
-  : image(file), symtab(file), _file(file)
+  : image(file), sections(file), symtab(file), _file(file)
 {
 }
 

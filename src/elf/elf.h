@@ -4,8 +4,8 @@
 # include <pervasive.h>
 
 # include <elf/image.h>
+# include <elf/sections.h>
 # include <elf/symtab.h>
-# include <elf/types.h>
 # include <utils/mapped_file.h>
 
 namespace sasm { namespace elf {
@@ -15,8 +15,9 @@ class elf
 public:
   elf(const sasm::utils::mapped_file& file);
 
-  sasm::elf::image  image;
-  sasm::elf::symtab symtab;
+  sasm::elf::image    image;
+  sasm::elf::sections sections;
+  sasm::elf::symtab   symtab;
 
   static int get_class(const sasm::utils::mapped_file& file);
   static int get_dataenc(const sasm::utils::mapped_file& file);
