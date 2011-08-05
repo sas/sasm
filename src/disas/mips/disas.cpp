@@ -95,7 +95,7 @@ sasm::instr::instr* mips_disas::next_instr()
     case 0x03: res = new sasm::instr::mips::jtype::jal(_elf, _current_addr);  break;
     case 0x04: res = new sasm::instr::mips::itype::beq(_elf, _current_addr);  break;
     case 0x05: res = new sasm::instr::mips::itype::bne(_elf, _current_addr);  break;
-    default: return new sasm::instr::mips::invalid(_elf, _current_addr);
+    default: res = new sasm::instr::mips::invalid(_elf, _current_addr);
   }
 
   _current_addr += 4; // Fixed size instructions
