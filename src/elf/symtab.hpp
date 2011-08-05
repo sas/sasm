@@ -33,10 +33,9 @@ inline auto symtab::operator[](uint64 addr) const -> const symbol&
 }
 
 inline symtab::const_iterator::const_iterator(const symtab& symtab, bool end)
+  : _parent_iter(symtab._addr_map.begin())
 {
-  if (!end)
-    _parent_iter = symtab._addr_map.begin();
-  else
+  if (end)
     _parent_iter = symtab._addr_map.end();
 }
 
@@ -50,28 +49,32 @@ inline auto symtab::const_iterator::operator->() const -> const symbol*
   return &(*_parent_iter->second);
 }
 
-inline auto symtab::const_iterator::operator++() -> const const_iterator&
+inline auto symtab::const_iterator::operator++() -> const_iterator&
 {
   ++_parent_iter;
   return *this;
 }
 
-inline auto symtab::const_iterator::operator++(int dummy) -> const const_iterator&
+inline auto symtab::const_iterator::operator++(int dummy) -> const_iterator
 {
   (void) dummy;
-  return ++(*this);
+  const_iterator res = *this;
+  ++(*this);
+  return res;
 }
 
-inline auto symtab::const_iterator::operator--() -> const const_iterator&
+inline auto symtab::const_iterator::operator--() -> const_iterator&
 {
   --_parent_iter;
   return *this;
 }
 
-inline auto symtab::const_iterator::operator--(int dummy) -> const const_iterator&
+inline auto symtab::const_iterator::operator--(int dummy) -> const_iterator
 {
   (void) dummy;
-  return --(*this);
+  const_iterator res = *this;
+  --(*this);
+  return res;
 }
 
 inline bool symtab::const_iterator::operator==(const const_iterator& rhs) const

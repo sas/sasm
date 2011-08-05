@@ -31,7 +31,7 @@ static void read_segments(const sasm::utils::mapped_file& file, std::list<image:
 }
 
 image::image(const sasm::utils::mapped_file& file)
-  : _file(file)
+  : _file(file), _segments()
 {
   int elf_class = sasm::elf::elf::get_class(file);
 

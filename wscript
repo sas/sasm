@@ -9,7 +9,6 @@ def configure(cnf):
 def build(bld):
   s = [
       'src/sasm.cpp',
-      'src/disas/disas.cpp',
       'src/disas/factory.cpp',
       'src/disas/mips/disas.cpp',
       'src/elf/elf.cpp',

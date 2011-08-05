@@ -33,7 +33,7 @@ void read_sections(
 }
 
 sections::sections(const sasm::utils::mapped_file& file)
-  : _file(file)
+  : _file(file), _sections()
 {
   int elf_class = sasm::elf::elf::get_class(file);
 

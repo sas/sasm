@@ -54,10 +54,10 @@ public:
 
     const symbol& operator*() const;
     const symbol* operator->() const;
-    const const_iterator& operator++();
-    const const_iterator& operator++(int dummy);
-    const const_iterator& operator--();
-    const const_iterator& operator--(int dummy);
+    const_iterator& operator++();
+    const_iterator operator++(int dummy);
+    const_iterator& operator--();
+    const_iterator operator--(int dummy);
     bool operator==(const const_iterator& rhs) const;
     bool operator!=(const const_iterator& rhs) const;
 

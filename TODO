@@ -5,4 +5,3 @@
 * remove <pervasive.h> includes and use -include instead
 * handle more pseudo instructions for mips
 * handle files where there is no phdr, shdr or symtab
-* -Weffc++
