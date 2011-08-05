@@ -1,4 +1,3 @@
-* integrate the disassembler into sasm::elf
 * it should not be an instruction's job to print his address
 * print jump target symbols (we may need to change multimap's compare -> equal_range)
 * disas all sections containing code, not only .text (see sh_flags of each section)
@@ -6,3 +5,4 @@
 * remove <pervasive.h> includes and use -include instead
 * handle more pseudo instructions for mips
 * handle files where there is no phdr, shdr or symtab
+* -Weffc++

@@ -1,8 +1,8 @@
 #ifndef ELF_IMAGE_H_
 # define ELF_IMAGE_H_
 
+# include <fwd.h>
 # include <pervasive.h>
-# include <utils/mapped_file.h>
 
 # include <list>
 

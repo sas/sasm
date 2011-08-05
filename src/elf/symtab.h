@@ -1,9 +1,8 @@
 #ifndef ELF_SYMTAB_H_
 # define ELF_SYMTAB_H_
 
+# include <fwd.h>
 # include <pervasive.h>
-# include <elf/types.h>
-# include <utils/mapped_file.h>
 
 # include <map>
 # include <memory>

@@ -1,8 +1,8 @@
 #ifndef ELF_SECTIONS_H_
 # define ELF_SECTIONS_H_
 
+# include <fwd.h>
 # include <pervasive.h>
-# include <utils/mapped_file.h>
 
 # include <map>
 # include <string>

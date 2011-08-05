@@ -1,6 +1,7 @@
 #include "factory.h"
 
 #include <disas/mips/disas.h>
+#include <elf/elf.h>
 
 #include <elf.h>
 

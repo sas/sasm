@@ -1,7 +1,11 @@
 #include "elf.h"
 
+#include <disas/disas.h>
+#include <disas/factory.h>
+#include <elf/sections.h>
 #include <elf/types.h>
 #include <exception/elf.h>
+#include <instr/instr.h>
 
 #include <elf.h>
 
@@ -10,6 +14,30 @@ namespace sasm { namespace elf {
 elf::elf(const sasm::utils::mapped_file& file)
   : image(file), sections(file), symtab(file), _file(file)
 {
+  disas = sasm::disas::factory(*this);
+}
+
+elf::~elf()
+{
+  delete disas;
+}
+
+void elf::dump_symtab(std::ostream& out) const
+{
+  for (auto i = symtab.begin(); i != symtab.end(); ++i)
+    out << "0x" << std::hex << i->addr << std::dec << ": " << i->name << std::endl;
+}
+
+void elf::dump_asm(std::ostream& out) const
+{
+  auto instr_count = sections[".text"].size / 4;
+
+  for (uint i = 0; i < instr_count; ++i)
+  {
+    auto ins = disas->next_instr();
+    ins->dump_asm(out);
+    delete ins;
+  }
 }
 
 int elf::get_class(const sasm::utils::mapped_file& file)

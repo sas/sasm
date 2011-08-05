@@ -1,5 +1,7 @@
 #include "disas.h"
 
+#include <elf/elf.h>
+
 namespace sasm { namespace disas {
 
 disas::disas(const sasm::elf::elf& elf)

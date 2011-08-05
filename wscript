@@ -3,7 +3,7 @@ def options(opt):
 
 def configure(cnf):
   cnf.load('compiler_cxx')
-  cnf.check(features='cxx cxxprogram', cflags=['-Wall -Wextra -std=c++0x'])
+  cnf.check(features='cxx cxxprogram', cflags=['-Wall -Wextra -Weffc++ -std=c++0x'])
   cnf.env.append_value('CXXFLAGS', ['-Wall', '-Wextra', '-std=c++0x'])
 
 def build(bld):

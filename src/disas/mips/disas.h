@@ -1,8 +1,8 @@
 #ifndef DISAS_MIPS_DISAS_H_
 # define DISAS_MIPS_DISAS_H_
 
+# include <fwd.h>
 # include <disas/disas.h>
-# include <instr/instr.h>
 
 namespace sasm { namespace disas {
 

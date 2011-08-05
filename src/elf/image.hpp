@@ -1,3 +1,5 @@
+#include <utils/mapped_file.h>
+
 #include <stdexcept>
 
 namespace sasm { namespace elf {

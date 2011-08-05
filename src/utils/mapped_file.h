@@ -1,6 +1,8 @@
 #ifndef MAPPED_FILE_H_
 # define MAPPED_FILE_H_
 
+# include <pervasive.h>
+
 namespace sasm { namespace utils {
 
 class mapped_file
@@ -18,10 +20,10 @@ public:
   const char* get_path() const;
 
 private:
-  const char*             _path;
-  bool                    _is_mapped;
-  const char*             _begin;
-  unsigned long long int  _size;
+  const char* _path;
+  bool        _is_mapped;
+  const char* _begin;
+  uint64      _size;
 };
 
 }}

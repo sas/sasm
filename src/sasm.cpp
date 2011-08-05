@@ -1,5 +1,4 @@
 #include <elf/elf.h>
-#include <disas/factory.h>
 #include <utils/mapped_file.h>
 
 #include <cstdlib>
@@ -12,29 +11,6 @@ static void usage_die()
   exit(EXIT_FAILURE);
 }
 
-#if 0
-static void dump_symtab(sasm::elf::elf& elf, std::ostream& out)
-{
-  for (auto i = elf.symtab.begin(); i != elf.symtab.end(); ++i)
-    out << "0x" << std::hex << i->addr << std::dec << ": " << i->name << std::endl;
-}
-#endif
-
-static void dump_asm(sasm::elf::elf& elf, std::ostream& out)
-{
-  auto dis = sasm::disas::factory(elf);
-  auto instr_count = elf.sections[".text"].size / 4;
-
-  for (uint i = 0; i < instr_count; ++i)
-  {
-    auto ins = dis->next_instr();
-    ins->dump_asm(out);
-    delete ins;
-  }
-
-  delete dis;
-}
-
 int main(int argc, char **argv)
 {
   if (argc != 2)
@@ -45,7 +21,7 @@ int main(int argc, char **argv)
 
   sasm::elf::elf e(f);
 
-  dump_asm(e, std::cout);
+  e.dump_asm(std::cout);
 
   return EXIT_SUCCESS;
 }

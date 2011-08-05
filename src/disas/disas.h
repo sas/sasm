@@ -1,11 +1,8 @@
 #ifndef DISAS_DISAS_H_
 # define DISAS_DISAS_H_
 
+# include <fwd.h>
 # include <pervasive.h>
-
-# include <elf/elf.h>
-# include <elf/types.h>
-# include <instr/instr.h>
 
 namespace sasm { namespace disas {
 
