@@ -13,6 +13,9 @@ namespace sasm { namespace elf {
 
 class symtab
 {
+public:
+  symtab(const sasm::utils::mapped_file& file);
+
   struct symbol
   {
     std::string name;
@@ -28,9 +31,6 @@ class symtab
     }           type;
   };
 
-public:
-  symtab(const sasm::utils::mapped_file& file);
-
   /*
   ** XXX: get_sym(addr_type addr) and operator[](addr_type addr) only return
   ** *one* symbol corresponding to the given address where there can be
@@ -44,7 +44,7 @@ public:
   const symbol& operator[](uint64 addr) const;
 
 private:
-  std::map<std::string, std::shared_ptr<symbol>>    _name_map;
+  std::map<std::string, std::shared_ptr<symbol>> _name_map;
   std::multimap<uint64, std::shared_ptr<symbol>> _addr_map;
 
 public:
