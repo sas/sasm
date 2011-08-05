@@ -15,7 +15,8 @@ jtype_instr::jtype_instr(const sasm::elf::elf& elf, uint64 addr)
 void jtype_instr::dump_asm(std::ostream& out) const
 {
   _dump_addr(out);
-  out << _name << " " << _get_abs_addr(_target_val << 2) << std::endl;
+  uint32 dst_addr = (_target_val << 2) + ((_addr >> 28) << 28);
+  out << _name << " " << _get_abs_addr(dst_addr) << std::endl;
 }
 
 }}}}
