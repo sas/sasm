@@ -11,6 +11,7 @@ struct subu : public rd_rs_rt_instr
   subu(const sasm::elf::elf& elf, uint64 addr)
     : rd_rs_rt_instr(elf, addr)
   { _name = "subu"; }
+  virtual ~subu() {}
 };
 
 }}}}

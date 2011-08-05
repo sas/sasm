@@ -11,6 +11,7 @@ struct addu : public rd_rs_rt_instr
   addu(const sasm::elf::elf& elf, uint64 addr)
     : rd_rs_rt_instr(elf, addr)
   { _name = "addu"; }
+  virtual ~addu() {}
 
   virtual void dump_asm(std::ostream& out) const
   {

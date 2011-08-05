@@ -11,6 +11,7 @@ struct srl : public rd_rt_sa_instr
   srl(const sasm::elf::elf& elf, uint64 addr)
     : rd_rt_sa_instr(elf, addr)
   { _name = "slr"; }
+  virtual ~srl() {}
 };
 
 }}}}

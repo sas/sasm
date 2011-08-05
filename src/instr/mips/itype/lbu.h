@@ -11,6 +11,7 @@ struct lbu : public rt_immedrs_instr
   lbu(const sasm::elf::elf& elf, uint64 addr)
     : rt_immedrs_instr(elf, addr)
   { _name = "lbu"; }
+  virtual ~lbu() {}
 };
 
 }}}}

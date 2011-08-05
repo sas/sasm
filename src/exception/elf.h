@@ -11,10 +11,7 @@ struct elf : public std::exception
   elf(const char* path, const char* message);
   virtual ~elf() throw() {}
 
-  virtual const char* what() const throw()
-  {
-    return this->_message.c_str();
-  }
+  virtual const char* what() const throw() { return this->_message.c_str(); }
 
 private:
   std::string _message;

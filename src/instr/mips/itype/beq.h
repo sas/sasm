@@ -11,6 +11,7 @@ struct beq : public rs_rt_label_instr
   beq(const sasm::elf::elf& elf, uint64 addr)
     : rs_rt_label_instr(elf, addr)
   { _name = "beq"; }
+  virtual ~beq() {}
 };
 
 }}}}

@@ -11,6 +11,7 @@ struct jal : public jtype_instr
   jal(const sasm::elf::elf& elf, uint64 addr)
     : jtype_instr(elf, addr)
   { _name = "jal"; }
+  virtual ~jal() {}
 };
 
 }}}}

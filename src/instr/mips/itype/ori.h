@@ -11,6 +11,7 @@ struct ori : public rt_rs_immed_instr
   ori(const sasm::elf::elf& elf, uint64 addr)
     : rt_rs_immed_instr(elf, addr)
   { _name = "ori"; }
+  virtual ~ori() {}
 };
 
 }}}}

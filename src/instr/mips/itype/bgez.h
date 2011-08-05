@@ -11,6 +11,7 @@ struct bgez : public rt_immedrs_instr
   bgez(const sasm::elf::elf& elf, uint64 addr)
     : rt_immedrs_instr(elf, addr)
   { _name = "bgez"; }
+  virtual ~bgez() {}
 };
 
 }}}}

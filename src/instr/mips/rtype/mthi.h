@@ -11,6 +11,7 @@ struct mthi : public rs_instr
   mthi(const sasm::elf::elf& elf, uint64 addr)
     : rs_instr(elf, addr)
   { _name = "mthi"; }
+  virtual ~mthi() {}
 };
 
 }}}}

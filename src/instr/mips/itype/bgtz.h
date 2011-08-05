@@ -11,6 +11,7 @@ struct bgtz : public rt_immedrs_instr
   bgtz(const sasm::elf::elf& elf, uint64 addr)
     : rt_immedrs_instr(elf, addr)
   { _name = "bgtz"; }
+  virtual ~bgtz() {}
 };
 
 }}}}

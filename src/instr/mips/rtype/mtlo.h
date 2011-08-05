@@ -11,6 +11,7 @@ struct mtlo : public rs_instr
   mtlo(const sasm::elf::elf& elf, uint64 addr)
     : rs_instr(elf, addr)
   { _name = "mtlo"; }
+  virtual ~mtlo() {}
 };
 
 }}}}

@@ -11,6 +11,7 @@ struct blez : public rt_immedrs_instr
   blez(const sasm::elf::elf& elf, uint64 addr)
     : rt_immedrs_instr(elf, addr)
   { _name = "blez"; }
+  virtual ~blez() {}
 };
 
 }}}}

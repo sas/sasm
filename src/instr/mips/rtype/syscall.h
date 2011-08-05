@@ -11,6 +11,7 @@ struct syscall : public noarg_instr
   syscall(const sasm::elf::elf& elf, uint64 addr)
     : noarg_instr(elf, addr)
   { _name = "syscall"; }
+  virtual ~syscall() {}
 };
 
 }}}}

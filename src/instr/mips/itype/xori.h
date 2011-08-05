@@ -11,6 +11,7 @@ struct xori : public rt_rs_immed_instr
   xori(const sasm::elf::elf& elf, uint64 addr)
     : rt_rs_immed_instr(elf, addr)
   { _name = "xori"; }
+  virtual ~xori() {}
 };
 
 }}}}

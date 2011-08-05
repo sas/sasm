@@ -11,6 +11,7 @@ struct divu : public rs_rt_instr
   divu(const sasm::elf::elf& elf, uint64 addr)
     : rs_rt_instr(elf, addr)
   { _name = "divu"; }
+  virtual ~divu() {}
 };
 
 }}}}

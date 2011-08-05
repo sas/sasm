@@ -11,6 +11,7 @@ struct j : public jtype_instr
   j(const sasm::elf::elf& elf, uint64 addr)
     : jtype_instr(elf, addr)
   { _name = "j"; }
+  virtual ~j() {}
 };
 
 }}}}

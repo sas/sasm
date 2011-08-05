@@ -11,6 +11,7 @@ struct lhu : public rt_immedrs_instr
   lhu(const sasm::elf::elf& elf, uint64 addr)
     : rt_immedrs_instr(elf, addr)
   { _name = "lhu"; }
+  virtual ~lhu() {}
 };
 
 }}}}

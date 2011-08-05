@@ -13,6 +13,7 @@ class invalid : public instr
 {
 public:
   invalid(const sasm::elf::elf& elf, uint64 addr);
+  virtual ~invalid() {}
   virtual void dump_asm(std::ostream& out) const;
 };
 

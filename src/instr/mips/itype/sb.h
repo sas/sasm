@@ -11,6 +11,7 @@ struct sb : public rt_immedrs_instr
   sb(const sasm::elf::elf& elf, uint64 addr)
     : rt_immedrs_instr(elf, addr)
   { _name = "sb"; }
+  virtual ~sb() {}
 };
 
 }}}}

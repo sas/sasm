@@ -12,10 +12,7 @@ struct os : public std::exception
   os(const char* syscall, const char* message);
   virtual ~os() throw() {}
 
-  virtual const char* what() const throw()
-  {
-    return this->_message.c_str();
-  }
+  virtual const char* what() const throw() { return this->_message.c_str(); }
 
 private:
   std::string _message;

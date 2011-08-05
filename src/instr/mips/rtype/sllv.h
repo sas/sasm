@@ -11,6 +11,7 @@ struct sllv : public rd_rt_rs_instr
   sllv(const sasm::elf::elf& elf, uint64 addr)
     : rd_rt_rs_instr(elf, addr)
   { _name = "sllv"; }
+  virtual ~sllv() {}
 };
 
 }}}}

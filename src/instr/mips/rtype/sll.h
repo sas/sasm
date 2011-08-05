@@ -11,6 +11,7 @@ struct sll : public rd_rt_sa_instr
   sll(const sasm::elf::elf& elf, uint64 addr)
     : rd_rt_sa_instr(elf, addr)
   { _name = "sll"; }
+  virtual ~sll() {}
 
   virtual void dump_asm(std::ostream& out) const
   {
