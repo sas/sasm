@@ -59,11 +59,6 @@
 
 namespace sasm { namespace disas {
 
-mips_disas::mips_disas(const sasm::elf::elf& elf)
-  : disas(elf)
-{
-}
-
 static sasm::instr::instr* next_rtype_instr(const sasm::elf::elf& elf, uint64 current_addr)
 {
   auto next = elf.image.read<uint32>(current_addr);

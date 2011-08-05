@@ -9,7 +9,7 @@ namespace sasm { namespace disas {
 class mips_disas : public disas
 {
 public:
-  mips_disas(const sasm::elf::elf& elf);
+  mips_disas(const sasm::elf::elf& elf) : disas(elf) {}
   virtual ~mips_disas() {}
   virtual sasm::instr::instr* next_instr();
 };

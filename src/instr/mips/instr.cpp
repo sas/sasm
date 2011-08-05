@@ -1,14 +1,8 @@
 #include "instr.h"
 
 #include <map>
-#include <sstream>
 
 namespace sasm { namespace instr { namespace mips {
-
-mips_instr::mips_instr(const sasm::elf::elf& elf, uint64 addr)
-  : instr(elf, addr)
-{
-}
 
 const std::string& mips_instr::_get_reg_name(int reg)
 {
@@ -24,29 +18,6 @@ const std::string& mips_instr::_get_reg_name(int reg)
   };
 
   return reg_to_name[reg];
-}
-
-/*
-** XXX: For the two following functions, we should return the target symbol name
-** if possible.
-*/
-
-std::string mips_instr::_get_rela_addr(sint32 offset) const
-{
-  std::ostringstream os;
-
-  os << "0x" << std::hex << _addr + offset << std::dec;
-
-  return os.str();
-}
-
-std::string mips_instr::_get_abs_addr(uint64 addr) const
-{
-  std::ostringstream os;
-
-  os << "0x" << std::hex << addr << std::dec;
-
-  return os.str();
 }
 
 }}}

@@ -16,9 +16,12 @@ public:
 
 protected:
   const sasm::elf::elf& _elf;
-  uint64 _addr;
+  uint64                _addr;
+  std::string           _name;
 
-  void _dump_addr(std::ostream& out) const;
+  std::string _get_rela_addr(sint64 offset) const;
+  std::string _get_abs_addr(uint64 addr) const;
+  void        _dump_addr(std::ostream& out) const;
 };
 
 }}
