@@ -8,7 +8,7 @@
 # include <ostream>
 # include <string>
 
-namespace sasm { namespace instr { namespace mips {
+namespace sasm { namespace instr { namespace arm {
 
 class arm_instr : public instr
 {

@@ -1,7 +1,7 @@
 #include "disas.h"
 
 #include <pervasive.h>
-#include <instr/mips/invalid.h>
+#include <instr/invalid.h>
 #include <instr/mips/itype/addi.h>
 #include <instr/mips/itype/addiu.h>
 #include <instr/mips/itype/andi.h>
@@ -93,7 +93,7 @@ static sasm::instr::instr* next_rtype_instr(const sasm::elf::elf& elf, uint64 cu
     case 0x27: return new sasm::instr::mips::rtype::nor(elf, current_addr);
     case 0x2a: return new sasm::instr::mips::rtype::slt(elf, current_addr);
     case 0x2b: return new sasm::instr::mips::rtype::sltu(elf, current_addr);
-    default: return new sasm::instr::mips::invalid(elf, current_addr);
+    default: return new sasm::instr::invalid(elf, current_addr);
   }
 }
 
@@ -111,7 +111,7 @@ sasm::instr::instr* mips_disas::next_instr()
                else if (MIPS_ITYPE_EXTRACT_RT(next) == 0x01)
                  res = new sasm::instr::mips::itype::bgez(_elf, _current_addr);
                else
-                 res = new sasm::instr::mips::invalid(_elf, _current_addr);
+                 res = new sasm::instr::invalid(_elf, _current_addr);
                break;
     case 0x02: res = new sasm::instr::mips::jtype::j(_elf, _current_addr);      break;
     case 0x03: res = new sasm::instr::mips::jtype::jal(_elf, _current_addr);    break;
@@ -121,13 +121,13 @@ sasm::instr::instr* mips_disas::next_instr()
                if (MIPS_ITYPE_EXTRACT_RT(next) == 0x00)
                  res = new sasm::instr::mips::itype::blez(_elf, _current_addr);
                else
-                 res = new sasm::instr::mips::invalid(_elf, _current_addr);
+                 res = new sasm::instr::invalid(_elf, _current_addr);
                break;
     case 0x07:
                if (MIPS_ITYPE_EXTRACT_RT(next) == 0x00)
                  res = new sasm::instr::mips::itype::bgtz(_elf, _current_addr);
                else
-                 res = new sasm::instr::mips::invalid(_elf, _current_addr);
+                 res = new sasm::instr::invalid(_elf, _current_addr);
                break;
     case 0x08: res = new sasm::instr::mips::itype::addi(_elf, _current_addr);   break;
     case 0x09: res = new sasm::instr::mips::itype::addiu(_elf, _current_addr);  break;
@@ -145,7 +145,7 @@ sasm::instr::instr* mips_disas::next_instr()
     case 0x28: res = new sasm::instr::mips::itype::sb(_elf, _current_addr);     break;
     case 0x29: res = new sasm::instr::mips::itype::sh(_elf, _current_addr);     break;
     case 0x2b: res = new sasm::instr::mips::itype::sw(_elf, _current_addr);     break;
-    default: res = new sasm::instr::mips::invalid(_elf, _current_addr);
+    default: res = new sasm::instr::invalid(_elf, _current_addr);
   }
 
   _current_addr += 4; // Fixed size instructions
