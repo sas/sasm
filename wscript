@@ -4,7 +4,7 @@ def options(opt):
 def configure(cnf):
   cnf.load('compiler_cxx')
   cnf.check(features='cxx cxxprogram', cflags=['-Wall -Wextra -Weffc++ -std=c++0x'])
-  cnf.env.append_value('CXXFLAGS', ['-Wall', '-Wextra', '-std=c++0x'])
+  cnf.env.append_value('CXXFLAGS', ['-Wall', '-Wextra', '-std=c++0x', '-g'])
 
 def build(bld):
   s = [
@@ -25,6 +25,7 @@ def build(bld):
       'src/instr/mips/itype/instr.cpp',
       'src/instr/mips/jtype/instr.cpp',
       'src/instr/mips/rtype/instr.cpp',
+      'src/utils/arg_parse.cpp',
       'src/utils/mapped_file.cpp'
   ]
   bld(features='cxx cxxprogram', source=s, target='sasm', includes='src')

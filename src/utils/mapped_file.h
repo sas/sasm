@@ -1,14 +1,17 @@
-#ifndef MAPPED_FILE_H_
-# define MAPPED_FILE_H_
+#ifndef UTILS_MAPPED_FILE_H_
+# define UTILS_MAPPED_FILE_H_
 
 # include <pervasive.h>
+
+# include <string>
 
 namespace sasm { namespace utils {
 
 class mapped_file
 {
 public:
-  mapped_file(const char* path);
+  mapped_file(const char* path) : _path(path), _is_mapped(false) {}
+  mapped_file(const std::string& path) : _path(path), _is_mapped(false) {}
   ~mapped_file();
 
   void map();
@@ -20,12 +23,12 @@ public:
   const char* get_path() const;
 
 private:
-  const char* _path;
-  bool        _is_mapped;
-  const char* _begin;
-  uint64      _size;
+  const std::string&  _path;
+  bool                _is_mapped;
+  const char*         _begin;
+  uint64              _size;
 };
 
 }}
 
-#endif /* !MAPPED_FILE_H_ */
+#endif /* !UTILS_MAPPED_FILE_H_ */

@@ -8,11 +8,6 @@
 
 namespace sasm { namespace utils {
 
-mapped_file::mapped_file(const char* path)
-  : _path(path), _is_mapped(false)
-{
-}
-
 mapped_file::~mapped_file()
 {
   if (_is_mapped)
@@ -25,8 +20,8 @@ void mapped_file::map()
   struct stat buf;
   char* begin;
   
-  if ((fd = open(_path, O_RDONLY)) == -1)
-    throw sasm::exception::os("open", _path);
+  if ((fd = open(get_path(), O_RDONLY)) == -1)
+    throw sasm::exception::os("open", get_path());
 
   if (fstat(fd, &buf) == -1)
     throw sasm::exception::os("fstat");
@@ -51,7 +46,7 @@ void mapped_file::unmap()
 
 const char* mapped_file::get_path() const
 {
-  return _path;
+  return _path.c_str();
 }
 
 }}
