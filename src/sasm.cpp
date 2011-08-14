@@ -11,19 +11,28 @@ int main(int argc, char **argv)
   ap.add_options()
     ('f', true, "the file to work on", true)
     ('d', false, "disassemble the file")
+    ('j', true, "which section to disassemble")
     ('s', false, "dump the file's symbol table")
   ;
 
   ap.parse(argc, argv);
+
+  auto ap_res = ap.get_results();
 
   sasm::utils::mapped_file f(ap.get_results()['f'].arg);
   f.map();
 
   sasm::elf::elf e(f);
 
-  if (ap.get_results()['d'].matched)
-    e.dump_asm(std::cout);
-  if (ap.get_results()['s'].matched)
+  if (ap_res['d'].matched)
+  {
+    if (ap_res['j'].matched)
+      e.dump_asm(std::cout, ap_res['j'].arg);
+    else
+      e.dump_asm(std::cout);
+  }
+
+  if (ap_res['s'].matched)
     e.dump_symtab(std::cout);
 
   return EXIT_SUCCESS;

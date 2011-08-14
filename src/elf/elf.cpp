@@ -32,12 +32,12 @@ void elf::dump_asm(std::ostream& out) const
 {
   for (auto i = sections.begin(); i != sections.end(); ++i)
     if (i->flags & SHF_EXECINSTR)
-      dump_asm(out, i->name.c_str());
+      dump_asm(out, i->name);
 }
 
-void elf::dump_asm(std::ostream& out, const char *name) const
+void elf::dump_asm(std::ostream& out, const std::string& section_name) const
 {
-  auto section = sections[name];
+  auto section = sections[section_name];
 
   out << "Section " << section.name << ":" << std::endl << std::endl;
 

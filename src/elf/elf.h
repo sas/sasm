@@ -24,7 +24,7 @@ public:
 
   void dump_symtab(std::ostream& out) const;
   void dump_asm(std::ostream& out) const;
-  void dump_asm(std::ostream& out, const char *section) const;
+  void dump_asm(std::ostream& out, const std::string& section_name) const;
 
   static int get_class(const sasm::utils::mapped_file& file);
   static int get_dataenc(const sasm::utils::mapped_file& file);
