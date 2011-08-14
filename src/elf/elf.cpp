@@ -39,15 +39,16 @@ void elf::dump_asm(std::ostream& out, const std::string& section_name) const
 {
   auto section = sections[section_name];
 
-  out << "Section " << section.name << ":" << std::endl << std::endl;
+  out << std::endl << "Section " << section.name << ":" << std::endl;
 
   disas->set_addr(section.vaddr);
 
   while (disas->get_addr() < section.vaddr + section.size)
   {
+    _dump_addr(out);
+
     auto ins = disas->next_instr();
 
-    _dump_addr(out);
     ins->dump_asm(out);
     out << std::endl;
 
