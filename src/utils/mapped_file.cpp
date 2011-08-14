@@ -1,5 +1,6 @@
 #include "mapped_file.h"
 
+#include <exception/elf.h>
 #include <exception/os.h>
 
 #include <fcntl.h>
@@ -25,6 +26,9 @@ void mapped_file::map()
 
   if (fstat(fd, &buf) == -1)
     throw sasm::exception::os("fstat");
+
+  if (buf.st_size == 0)
+    throw sasm::exception::elf(_path.c_str(), "invalid ELF file");
 
   if ((begin = (char*) mmap(NULL, buf.st_size, PROT_READ, MAP_PRIVATE, fd, 0)) == MAP_FAILED)
     throw sasm::exception::os("mmap");
