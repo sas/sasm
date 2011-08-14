@@ -21,7 +21,6 @@ protected:
 
   std::string _get_rela_addr(sint64 offset) const;
   std::string _get_abs_addr(uint64 addr) const;
-  void        _dump_addr(std::ostream& out) const;
 };
 
 }}

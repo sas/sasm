@@ -22,9 +22,8 @@ branch::branch(const sasm::elf::elf& elf, uint64 addr)
 
 void branch::dump_asm(std::ostream& out) const
 {
-  _dump_addr(out);
   out << "b" << (_link ? "l" : "") << _get_cond() << " "
-    << _get_rela_addr(_offset) << std::endl;
+    << _get_rela_addr(_offset);
 }
 
 }}}

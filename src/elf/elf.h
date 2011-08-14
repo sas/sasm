@@ -40,6 +40,8 @@ public:
 
 private:
   const sasm::utils::mapped_file& _file;
+
+  void _dump_addr(std::ostream& out) const;
 };
 
 }}

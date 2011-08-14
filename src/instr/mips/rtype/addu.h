@@ -17,15 +17,9 @@ struct addu : public rd_rs_rt_instr
   {
     /* move pseudo instruction. */
     if (_rt_reg == 0)
-    {
-      _dump_addr(out);
-      out << "move " << _get_reg_name(_rd_reg) << ", " << _get_reg_name(_rs_reg)
-        << std::endl;
-    }
+      out << "move " << _get_reg_name(_rd_reg) << ", " << _get_reg_name(_rs_reg);
     else
-    {
       rd_rs_rt_instr::dump_asm(out);
-    }
   }
 };
 

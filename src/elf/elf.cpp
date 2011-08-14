@@ -46,7 +46,11 @@ void elf::dump_asm(std::ostream& out, const char *name) const
   while (disas->get_addr() < section.vaddr + section.size)
   {
     auto ins = disas->next_instr();
+
+    _dump_addr(out);
     ins->dump_asm(out);
+    out << std::endl;
+
     delete ins;
   }
 }
@@ -140,6 +144,20 @@ int elf::get_machine() const
 uint64 elf::get_entry() const
 {
   return get_entry(_file);
+}
+
+void elf::_dump_addr(std::ostream& out) const
+{
+  try
+  {
+    auto sym = symtab[disas->get_addr()];
+
+    if (sym.type == sasm::elf::symtab::symbol::sym_type::func)
+      out << std::endl << sym.name << ":" << std::endl;
+  }
+  catch (std::out_of_range& e) {}
+
+  out << "  0x" << std::hex << disas->get_addr() << std::dec << ": ";
 }
 
 }}

@@ -30,7 +30,6 @@ data::data(const sasm::elf::elf& elf, uint64 addr)
 
 void data::dump_asm(std::ostream& out) const
 {
-  _dump_addr(out);
   
   out << _get_opcode_name(_opcode) << (_setcond ? "s" : "") << _get_cond();
   out << " " << _get_reg_name(_rd_reg) << ", ";
@@ -38,7 +37,7 @@ void data::dump_asm(std::ostream& out) const
   if (_opcode != 0xd && _opcode != 0xf) /* mov and mvn do not use the Rn register. */
     out << _get_reg_name(_rn_reg) << ", ";
   
-  out << _get_operand2_str(_operand2, _immed) << std::endl;
+  out << _get_operand2_str(_operand2, _immed);
 }
 
 const std::string& data::_get_opcode_name(int opcode)

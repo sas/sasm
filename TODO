@@ -1,4 +1,3 @@
-* it should not be an instruction's job to print his address
 * print jump target symbols (we may need to change multimap's compare -> equal_range)
 
 * remove <pervasive.h> includes and use -include instead

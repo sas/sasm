@@ -18,7 +18,6 @@ struct sll : public rd_rt_sa_instr
     /* nop pseudo instruction. */
     if (_rd_reg == 0 && _rt_reg == 0 && _sa_val == 0)
     {
-      _dump_addr(out);
       out << "nop" << std::endl;
     }
     else

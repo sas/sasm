@@ -16,8 +16,7 @@ bx::bx(const sasm::elf::elf& elf, uint64 addr)
 
 void bx::dump_asm(std::ostream& out) const
 {
-  _dump_addr(out);
-  out << "bx" << _get_cond() << " " << _get_reg_name(_rn_reg) << std::endl;
+  out << "bx" << _get_cond() << " " << _get_reg_name(_rn_reg);
 }
 
 }}}
