@@ -6,7 +6,7 @@ namespace sasm { namespace instr { namespace mips {
 
 const std::string& mips_instr::_get_reg_name(int reg)
 {
-  static std::map<int, std::string> reg_to_name = {
+  static std::map<int, std::string> reg_to_str = {
     { 0,  "zero" }, { 1,  "at" }, { 2,  "v0" }, { 3,  "v1" },
     { 4,  "a0" },   { 5,  "a1" }, { 6,  "a2" }, { 7,  "a3" },
     { 8,  "t0" },   { 9,  "t1" }, { 10, "t2" }, { 11, "t3" },
@@ -17,7 +17,7 @@ const std::string& mips_instr::_get_reg_name(int reg)
     { 28, "gp" },   { 29, "sp" }, { 30, "fp" }, { 31, "ra" },
   };
 
-  return reg_to_name[reg];
+  return reg_to_str[reg];
 }
 
 }}}

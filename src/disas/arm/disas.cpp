@@ -2,12 +2,15 @@
 
 #include <pervasive.h>
 #include <instr/invalid.h>
+#include <instr/arm/branch.h>
+#include <instr/arm/data.h>
 #include <instr/arm/swi.h>
+#include <instr/arm/undef.h>
 
 #include <vector>
 
-#define ARM_INSTR_COND(Instr) (Instr >> 28)
-
+#define ARM_INSTR_DATA_MASK   0x0c000000
+#define ARM_INSTR_DATA        0x00000000
 #define ARM_INSTR_MULT_MASK   0x0fc000f0
 #define ARM_INSTR_MULT        0x00000090
 #define ARM_INSTR_MULTL_MASK  0x0f8000f0
@@ -49,9 +52,13 @@ sasm::instr::instr* arm_disas::next_instr()
   auto next = _elf.image.read<uint32>(_current_addr);
   sasm::instr::instr* res;
 
-  _cond = ARM_INSTR_COND(next);
-
-  if (ARM_INSTR_IS_A(next, SWI))
+  if (ARM_INSTR_IS_A(next, DATA))
+    res = new sasm::instr::arm::data(_elf, _current_addr);
+  else if (ARM_INSTR_IS_A(next, UNDEF))
+    res = new sasm::instr::arm::undef(_elf, _current_addr);
+  else if (ARM_INSTR_IS_A(next, BRANCH))
+    res = new sasm::instr::arm::branch(_elf, _current_addr);
+  else if (ARM_INSTR_IS_A(next, SWI))
     res = new sasm::instr::arm::swi(_elf, _current_addr);
   else
     res = new sasm::instr::invalid(_elf, _current_addr);

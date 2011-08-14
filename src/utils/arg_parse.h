@@ -48,8 +48,8 @@ public:
 
 private:
   std::vector<option> _options;
-  std::vector<arg>  _args;
-  options_proxy     _proxy;
+  std::vector<arg>    _args;
+  options_proxy       _proxy;
 };
 
 }}

@@ -1,5 +1,7 @@
 #include "instr.h"
 
+#include <elf/elf.h>
+
 #define MIPS_JTYPE_EXTRACT_TARGET(Instr) (Instr & ((1 << 26) - 1))
 
 namespace sasm { namespace instr { namespace mips { namespace jtype {
