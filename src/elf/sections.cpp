@@ -27,6 +27,7 @@ void read_sections(
       sect.name.append(1, c);
     sect.vaddr = shdr.sh_addr;
     sect.size = shdr.sh_size;
+    sect.flags = shdr.sh_flags;
 
     sections[sect.name] = sect;
   }

@@ -14,6 +14,9 @@ public:
   virtual ~disas() {}
   virtual sasm::instr::instr* next_instr() = 0;
 
+  void set_addr(uint64 addr) { _current_addr = addr; }
+  uint64 get_addr() const { return _current_addr; }
+
 protected:
   const sasm::elf::elf& _elf;
   uint64 _current_addr;

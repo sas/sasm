@@ -30,9 +30,20 @@ void elf::dump_symtab(std::ostream& out) const
 
 void elf::dump_asm(std::ostream& out) const
 {
-  auto instr_count = sections[".text"].size / 4;
+  for (auto i = sections.begin(); i != sections.end(); ++i)
+    if (i->flags & SHF_EXECINSTR)
+      dump_asm(out, i->name.c_str());
+}
 
-  for (uint i = 0; i < instr_count; ++i)
+void elf::dump_asm(std::ostream& out, const char *name) const
+{
+  auto section = sections[name];
+
+  out << "Section " << section.name << ":" << std::endl << std::endl;
+
+  disas->set_addr(section.vaddr);
+
+  while (disas->get_addr() < section.vaddr + section.size)
   {
     auto ins = disas->next_instr();
     ins->dump_asm(out);
