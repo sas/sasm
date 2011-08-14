@@ -3,6 +3,7 @@
 #include <pervasive.h>
 #include <instr/invalid.h>
 #include <instr/arm/branch.h>
+#include <instr/arm/bx.h>
 #include <instr/arm/data.h>
 #include <instr/arm/swi.h>
 #include <instr/arm/undef.h>
@@ -52,14 +53,17 @@ sasm::instr::instr* arm_disas::next_instr()
   auto next = _elf.image.read<uint32>(_current_addr);
   sasm::instr::instr* res;
 
-  if (ARM_INSTR_IS_A(next, DATA))
-    res = new sasm::instr::arm::data(_elf, _current_addr);
+  /* Order is important here, we have to put the most specific masks first. */
+  if (ARM_INSTR_IS_A(next, BX))
+    res = new sasm::instr::arm::bx(_elf, _current_addr);
+  else if (ARM_INSTR_IS_A(next, SWI))
+    res = new sasm::instr::arm::swi(_elf, _current_addr);
   else if (ARM_INSTR_IS_A(next, UNDEF))
     res = new sasm::instr::arm::undef(_elf, _current_addr);
   else if (ARM_INSTR_IS_A(next, BRANCH))
     res = new sasm::instr::arm::branch(_elf, _current_addr);
-  else if (ARM_INSTR_IS_A(next, SWI))
-    res = new sasm::instr::arm::swi(_elf, _current_addr);
+  else if (ARM_INSTR_IS_A(next, DATA))
+    res = new sasm::instr::arm::data(_elf, _current_addr);
   else
     res = new sasm::instr::invalid(_elf, _current_addr);
 
