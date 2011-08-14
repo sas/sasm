@@ -24,6 +24,7 @@ def build(bld):
       'src/instr/arm/bx.cpp',
       'src/instr/arm/branch.cpp',
       'src/instr/arm/data.cpp',
+      'src/instr/arm/mult.cpp',
       'src/instr/arm/swi.cpp',
       'src/instr/arm/undef.cpp',
       'src/instr/mips/instr.cpp',

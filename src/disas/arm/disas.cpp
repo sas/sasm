@@ -5,6 +5,7 @@
 #include <instr/arm/branch.h>
 #include <instr/arm/bx.h>
 #include <instr/arm/data.h>
+#include <instr/arm/mult.h>
 #include <instr/arm/swi.h>
 #include <instr/arm/undef.h>
 
@@ -56,6 +57,8 @@ sasm::instr::instr* arm_disas::next_instr()
     res = new sasm::instr::arm::bx(_elf, _current_addr);
   else if (ARM_INSTR_IS_A(next, SWI))
     res = new sasm::instr::arm::swi(_elf, _current_addr);
+  else if (ARM_INSTR_IS_A(next, MULT))
+    res = new sasm::instr::arm::mult(_elf, _current_addr);
   else if (ARM_INSTR_IS_A(next, UNDEF))
     res = new sasm::instr::arm::undef(_elf, _current_addr);
   else if (ARM_INSTR_IS_A(next, BRANCH))
