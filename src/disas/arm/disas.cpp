@@ -1,4 +1,4 @@
-#include "disas.h"
+#include <vector>
 
 #include <pervasive.h>
 #include <instr/invalid.h>
@@ -9,7 +9,7 @@
 #include <instr/arm/swi.h>
 #include <instr/arm/undef.h>
 
-#include <vector>
+#include "disas.h"
 
 #define ARM_INSTR_DATA_MASK   0x0c000000
 #define ARM_INSTR_DATA        0x00000000

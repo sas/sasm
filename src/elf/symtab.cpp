@@ -1,8 +1,8 @@
-#include "symtab.h"
-
 #include <pervasive.h>
 #include <elf/elf.h>
 #include <elf/types.h>
+
+#include "symtab.h"
 
 namespace sasm { namespace elf {
 

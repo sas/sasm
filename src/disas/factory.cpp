@@ -1,10 +1,10 @@
-#include "factory.h"
+#include <elf.h>
 
 #include <disas/arm/disas.h>
 #include <disas/mips/disas.h>
 #include <elf/elf.h>
 
-#include <elf.h>
+#include "factory.h"
 
 namespace sasm { namespace disas {
 

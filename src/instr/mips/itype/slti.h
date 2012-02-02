@@ -11,7 +11,6 @@ struct slti : public rt_rs_immed_instr
   slti(const sasm::elf::elf& elf, uint64 addr)
     : rt_rs_immed_instr(elf, addr)
   { _name = "slti"; }
-  virtual ~slti() {}
 };
 
 }}}}

@@ -11,7 +11,6 @@ struct div : public rs_rt_instr
   div(const sasm::elf::elf& elf, uint64 addr)
     : rs_rt_instr(elf, addr)
   { _name = "div"; }
-  virtual ~div() {}
 };
 
 }}}}

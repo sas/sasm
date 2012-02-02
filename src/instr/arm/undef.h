@@ -1,10 +1,10 @@
 #ifndef INSTR_ARM_UNDEF_H_
 # define INSTR_ARM_UNDEF_H_
 
+# include <ostream>
+
 # include <fwd.h>
 # include <instr/arm/instr.h>
-
-# include <ostream>
 
 namespace sasm { namespace instr { namespace arm {
 
@@ -12,7 +12,6 @@ class undef : public arm_instr
 {
 public:
   undef(const sasm::elf::elf& elf, uint64 addr) : arm_instr(elf, addr) {}
-  virtual ~undef() {}
   virtual void dump_asm(std::ostream& out) const;
 };
 

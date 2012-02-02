@@ -11,7 +11,6 @@ struct jr : public rs_instr
   jr(const sasm::elf::elf& elf, uint64 addr)
     : rs_instr(elf, addr)
   { _name = "jr"; }
-  virtual ~jr() {}
 };
 
 }}}}

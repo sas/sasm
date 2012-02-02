@@ -17,7 +17,6 @@ class rtype_instr : public mips_instr
 {
 public:
   rtype_instr(const sasm::elf::elf& elf, uint64 addr);
-  virtual ~rtype_instr() {}
   virtual void dump_asm(std::ostream& out) const = 0;
 
 protected:

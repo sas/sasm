@@ -1,12 +1,12 @@
 #ifndef ELF_SYMTAB_H_
 # define ELF_SYMTAB_H_
 
-# include <fwd.h>
-# include <pervasive.h>
-
 # include <map>
 # include <memory>
 # include <string>
+
+# include <fwd.h>
+# include <pervasive.h>
 
 namespace sasm { namespace elf {
 

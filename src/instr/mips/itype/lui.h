@@ -11,7 +11,6 @@ struct lui : public rt_immed_instr
   lui(const sasm::elf::elf& elf, uint64 addr)
     : rt_immed_instr(elf, addr)
   { _name = "lui"; }
-  virtual ~lui() {}
 };
 
 }}}}

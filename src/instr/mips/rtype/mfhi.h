@@ -11,7 +11,6 @@ struct mfhi : public rd_instr
   mfhi(const sasm::elf::elf& elf, uint64 addr)
     : rd_instr(elf, addr)
   { _name = "mfhi"; }
-  virtual ~mfhi() {}
 };
 
 }}}}

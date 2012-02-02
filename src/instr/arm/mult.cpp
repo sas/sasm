@@ -1,6 +1,6 @@
-#include "mult.h"
-
 #include <utils/bitops.h>
+
+#include "mult.h"
 
 #define ARM_BRANCH_EXTRACT_LONG(Instr)        EXTRACT_BIT(Instr, 23)
 #define ARM_BRANCH_EXTRACT_UNSIGNED(Instr)    EXTRACT_BIT(Instr, 22)

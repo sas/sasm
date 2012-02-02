@@ -1,7 +1,7 @@
-#include "sections.h"
-
 #include <elf/elf.h>
 #include <elf/types.h>
+
+#include "sections.h"
 
 namespace sasm { namespace elf {
 

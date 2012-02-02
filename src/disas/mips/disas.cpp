@@ -1,5 +1,3 @@
-#include "disas.h"
-
 #include <pervasive.h>
 #include <instr/invalid.h>
 #include <instr/mips/itype/addi.h>
@@ -54,6 +52,8 @@
 #include <instr/mips/rtype/subu.h>
 #include <instr/mips/rtype/syscall.h>
 #include <instr/mips/rtype/xor.h>
+
+#include "disas.h"
 
 #define MIPS_INSTR_OPCODE(Instr)    (Instr >> 26)
 

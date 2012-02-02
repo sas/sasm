@@ -1,6 +1,6 @@
-#include "bx.h"
-
 #include <elf/elf.h>
+
+#include "bx.h"
 
 #define ARM_BX_EXTRACT_RN(Instr)  (Instr & 0xf)
 

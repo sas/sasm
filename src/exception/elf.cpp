@@ -1,7 +1,7 @@
-#include "elf.h"
-
 #include <cstring>
 #include <cerrno>
+
+#include "elf.h"
 
 namespace sasm { namespace exception {
 

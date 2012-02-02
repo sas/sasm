@@ -1,9 +1,9 @@
 #ifndef INSTR_INSTR_H_
 # define INSTR_INSTR_H_
 
-# include <elf/elf.h>
-
 # include <ostream>
+
+# include <elf/elf.h>
 
 namespace sasm { namespace instr {
 

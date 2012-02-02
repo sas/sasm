@@ -12,7 +12,6 @@ class jtype_instr : public mips_instr
 {
 public:
   jtype_instr(const sasm::elf::elf& elf, uint64 addr);
-  virtual ~jtype_instr() {}
   virtual void dump_asm(std::ostream& out) const;
 
 protected:

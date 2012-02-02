@@ -12,7 +12,6 @@ struct xor_ : public rd_rs_rt_instr
   xor_(const sasm::elf::elf& elf, uint64 addr)
     : rd_rs_rt_instr(elf, addr)
   { _name = "xor"; }
-  virtual ~xor_() {}
 };
 
 }}}}

@@ -12,13 +12,7 @@ class arm_disas : public disas
 {
 public:
   arm_disas(const sasm::elf::elf& elf) : disas(elf) {}
-  virtual ~arm_disas() {}
   virtual sasm::instr::instr* next_instr();
-
-protected:
-  const std::string& _get_cond();
-
-  int _cond;
 };
 
 }}

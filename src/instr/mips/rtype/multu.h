@@ -11,7 +11,6 @@ struct multu : public rs_rt_instr
   multu(const sasm::elf::elf& elf, uint64 addr)
     : rs_rt_instr(elf, addr)
   { _name = "multu"; }
-  virtual ~multu() {}
 };
 
 }}}}

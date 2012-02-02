@@ -11,7 +11,6 @@ struct bne : public rs_rt_label_instr
   bne(const sasm::elf::elf& elf, uint64 addr)
     : rs_rt_label_instr(elf, addr)
   { _name = "bne"; }
-  virtual ~bne() {}
 };
 
 }}}}

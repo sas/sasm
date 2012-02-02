@@ -6,9 +6,7 @@
 namespace sasm { namespace elf {
 
 template<int elf_class>
-struct types
-{
-};
+struct types;
 
 template<>
 struct types<ELFCLASS32>

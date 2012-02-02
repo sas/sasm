@@ -11,7 +11,6 @@ struct srav : public rd_rt_rs_instr
   srav(const sasm::elf::elf& elf, uint64 addr)
     : rd_rt_rs_instr(elf, addr)
   { _name = "srav"; }
-  virtual ~srav() {}
 };
 
 }}}}

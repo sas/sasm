@@ -12,7 +12,6 @@ struct or_ : public rd_rs_rt_instr
   or_(const sasm::elf::elf& elf, uint64 addr)
     : rd_rs_rt_instr(elf, addr)
   { _name = "or"; }
-  virtual ~or_() {}
 };
 
 }}}}

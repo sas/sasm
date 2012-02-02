@@ -1,10 +1,10 @@
 #ifndef ELF_IMAGE_H_
 # define ELF_IMAGE_H_
 
+# include <list>
+
 # include <fwd.h>
 # include <pervasive.h>
-
-# include <list>
 
 namespace sasm { namespace elf {
 

@@ -1,6 +1,6 @@
-#include "instr.h"
-
 #include <sstream>
+
+#include "instr.h"
 
 namespace sasm { namespace instr {
 

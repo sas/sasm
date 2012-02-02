@@ -1,7 +1,7 @@
-#include "os.h"
-
 #include <cstring>
 #include <cerrno>
+
+#include "os.h"
 
 namespace sasm { namespace exception {
 

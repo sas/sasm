@@ -1,11 +1,11 @@
 #ifndef ELF_SECTIONS_H_
 # define ELF_SECTIONS_H_
 
-# include <fwd.h>
-# include <pervasive.h>
-
 # include <map>
 # include <string>
+
+# include <fwd.h>
+# include <pervasive.h>
 
 namespace sasm { namespace elf {
 

@@ -12,7 +12,6 @@ struct break_ : public noarg_instr
   break_(const sasm::elf::elf& elf, uint64 addr)
     : noarg_instr(elf, addr)
   { _name = "break"; }
-  virtual ~break_() {}
 };
 
 }}}}

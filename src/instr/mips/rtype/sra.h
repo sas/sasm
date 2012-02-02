@@ -11,7 +11,6 @@ struct sra : public rd_rt_sa_instr
   sra(const sasm::elf::elf& elf, uint64 addr)
     : rd_rt_sa_instr(elf, addr)
   { _name = "sra"; }
-  virtual ~sra() {}
 };
 
 }}}}

@@ -1,9 +1,9 @@
-#include "data.h"
+#include <map>
+#include <sstream>
 
 #include <elf/elf.h>
 
-#include <map>
-#include <sstream>
+#include "data.h"
 
 #define ARM_DATA_EXTRACT_IMMED(Instr)     ((Instr >> 25) & 1)
 #define ARM_DATA_EXTRACT_OPCODE(Instr)    ((Instr & ((1 << 25) - 1)) >> 21)

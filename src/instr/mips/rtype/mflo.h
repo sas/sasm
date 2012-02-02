@@ -11,7 +11,6 @@ struct mflo : public rd_instr
   mflo(const sasm::elf::elf& elf, uint64 addr)
     : rd_instr(elf, addr)
   { _name = "mflo"; }
-  virtual ~mflo() {}
 };
 
 }}}}

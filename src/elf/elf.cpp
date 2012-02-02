@@ -1,4 +1,4 @@
-#include "elf.h"
+#include <elf.h>
 
 #include <disas/disas.h>
 #include <disas/factory.h>
@@ -7,7 +7,7 @@
 #include <exception/elf.h>
 #include <instr/instr.h>
 
-#include <elf.h>
+#include "elf.h"
 
 namespace sasm { namespace elf {
 

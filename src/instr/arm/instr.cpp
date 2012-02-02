@@ -1,6 +1,6 @@
-#include "instr.h"
-
 #include <map>
+
+#include "instr.h"
 
 #define ARM_INSTR_COND(Instr) (Instr >> 28)
 

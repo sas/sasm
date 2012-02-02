@@ -11,7 +11,6 @@ struct sub : public rd_rs_rt_instr
   sub(const sasm::elf::elf& elf, uint64 addr)
     : rd_rs_rt_instr(elf, addr)
   { _name = "sub"; }
-  virtual ~sub() {}
 };
 
 }}}}

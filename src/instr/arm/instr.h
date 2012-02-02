@@ -2,11 +2,11 @@
 #ifndef INSTR_MIPS_INSTR_H_
 # define INSTR_MIPS_INSTR_H_
 
-# include <fwd.h>
-# include <instr/instr.h>
-
 # include <ostream>
 # include <string>
+
+# include <fwd.h>
+# include <instr/instr.h>
 
 namespace sasm { namespace instr { namespace arm {
 
@@ -14,7 +14,6 @@ class arm_instr : public instr
 {
 public:
   arm_instr(const sasm::elf::elf& elf, uint64 addr);
-  virtual ~arm_instr() {}
   virtual void dump_asm(std::ostream& out) const = 0;
 
 protected:

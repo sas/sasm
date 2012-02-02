@@ -13,7 +13,6 @@ class mips_instr : public instr
 {
 public:
   mips_instr(const sasm::elf::elf& elf, uint64 addr) : instr(elf, addr) {}
-  virtual ~mips_instr() {}
   virtual void dump_asm(std::ostream& out) const = 0;
 
 protected:

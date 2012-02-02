@@ -11,7 +11,6 @@ struct jalr : public rd_rs_instr
   jalr(const sasm::elf::elf& elf, uint64 addr)
     : rd_rs_instr(elf, addr)
   { _name = "jalr"; }
-  virtual ~jalr() {}
 };
 
 }}}}
