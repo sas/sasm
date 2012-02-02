@@ -9,6 +9,11 @@
 
 namespace sasm { namespace utils {
 
+mapped_file::mapped_file(const std::string& path)
+  : _path(path), _is_mapped(false), _begin(nullptr), _size(0)
+{
+}
+
 mapped_file::~mapped_file()
 {
   if (_is_mapped)

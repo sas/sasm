@@ -10,8 +10,7 @@ namespace sasm { namespace utils {
 class mapped_file
 {
 public:
-  mapped_file(const char* path) : _path(path), _is_mapped(false) {}
-  mapped_file(const std::string& path) : _path(path), _is_mapped(false) {}
+  mapped_file(const std::string& path);
   ~mapped_file();
 
   void map();
