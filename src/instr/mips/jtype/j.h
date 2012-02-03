@@ -1,7 +1,6 @@
 #ifndef INSTR_MIPS_JTYPE_J_H_
 # define INSTR_MIPS_JTYPE_J_H_
 
-# include <pervasive.h>
 # include <instr/mips/jtype/instr.h>
 
 namespace sasm { namespace instr { namespace mips { namespace jtype {

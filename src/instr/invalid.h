@@ -4,7 +4,6 @@
 # include <ostream>
 
 # include <fwd.h>
-# include <pervasive.h>
 # include <instr/instr.h>
 
 namespace sasm { namespace instr {

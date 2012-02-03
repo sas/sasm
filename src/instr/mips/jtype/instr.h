@@ -1,7 +1,6 @@
 #ifndef INSTR_MIPS_JTYPE_INSTR_H_
 # define INSTR_MIPS_JTYPE_INSTR_H_
 
-# include <pervasive.h>
 # include <instr/mips/instr.h>
 
 # include <ostream>

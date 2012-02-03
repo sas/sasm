@@ -1,8 +1,6 @@
 #ifndef UTILS_MAPPED_FILE_H_
 # define UTILS_MAPPED_FILE_H_
 
-# include <pervasive.h>
-
 # include <string>
 
 namespace sasm { namespace utils {

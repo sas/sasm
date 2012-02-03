@@ -1,7 +1,6 @@
 #ifndef INSTR_MIPS_ITYPE_ADDI_H_
 # define INSTR_MIPS_ITYPE_ADDI_H_
 
-# include <pervasive.h>
 # include <instr/mips/itype/instr.h>
 
 namespace sasm { namespace instr { namespace mips { namespace itype {

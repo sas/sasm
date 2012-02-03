@@ -1,7 +1,6 @@
 #ifndef INSTR_MIPS_RTYPE_SRLV_H_
 # define INSTR_MIPS_RTYPE_SRLV_H_
 
-# include <pervasive.h>
 # include <instr/mips/rtype/instr.h>
 
 namespace sasm { namespace instr { namespace mips { namespace rtype {

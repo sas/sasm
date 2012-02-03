@@ -1,6 +1,5 @@
 #include <vector>
 
-#include <pervasive.h>
 #include <instr/invalid.h>
 #include <instr/arm/branch.h>
 #include <instr/arm/bx.h>

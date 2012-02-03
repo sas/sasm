@@ -1,8 +1,6 @@
 #ifndef UTILS_ARG_PARSE_H_
 # define UTILS_ARG_PARSE_H_
 
-# include <pervasive.h>
-
 # include <ostream>
 # include <string>
 # include <vector>

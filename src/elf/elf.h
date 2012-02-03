@@ -4,7 +4,6 @@
 # include <ostream>
 
 # include <fwd.h>
-# include <pervasive.h>
 # include <elf/image.h>
 # include <elf/sections.h>
 # include <elf/symtab.h>

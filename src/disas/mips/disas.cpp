@@ -1,4 +1,3 @@
-#include <pervasive.h>
 #include <instr/invalid.h>
 #include <instr/mips/itype/addi.h>
 #include <instr/mips/itype/addiu.h>

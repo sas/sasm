@@ -5,7 +5,6 @@
 # include <string>
 
 # include <fwd.h>
-# include <pervasive.h>
 
 namespace sasm { namespace elf {
 
