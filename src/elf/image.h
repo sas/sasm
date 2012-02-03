@@ -3,7 +3,7 @@
 
 # include <list>
 
-# include <fwd.h>
+# include <utils/mapped_file.h>
 
 namespace sasm { namespace elf {
 

@@ -5,8 +5,6 @@
 # include <memory>
 # include <string>
 
-# include <fwd.h>
-
 namespace sasm { namespace elf {
 
 class symtab

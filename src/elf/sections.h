@@ -4,8 +4,6 @@
 # include <map>
 # include <string>
 
-# include <fwd.h>
-
 namespace sasm { namespace elf {
 
 class sections

@@ -5,7 +5,6 @@
 # include <ostream>
 # include <string>
 
-# include <fwd.h>
 # include <instr/instr.h>
 
 namespace sasm { namespace instr { namespace arm {

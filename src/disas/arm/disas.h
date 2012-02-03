@@ -1,7 +1,6 @@
 #ifndef DISAS_ARM_DISAS_H_
 # define DISAS_ARM_DISAS_H_
 
-# include <fwd.h>
 # include <disas/disas.h>
 
 # include <string>

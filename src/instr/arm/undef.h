@@ -3,7 +3,6 @@
 
 # include <ostream>
 
-# include <fwd.h>
 # include <instr/arm/instr.h>
 
 namespace sasm { namespace instr { namespace arm {
