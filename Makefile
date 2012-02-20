@@ -20,7 +20,6 @@ DEPS			:= $(OBJS:.o=.d)
 
 # required flags
 CXXFLAGS		+= -Wall -Wextra -std=c++0x
-CXXFLAGS		+= -include $(ROOT)/src/pervasive.h
 CXXFLAGS		+= -I $(ROOT)/src -include $(ROOT)/src/pervasive.h
 MAKEFLAGS		+= --no-builtin-rules --no-builtin-variables
 MAKEFLAGS		+= --warn-undefined-variables
